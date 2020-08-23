@@ -1,0 +1,16 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: nxiq-volume
+  # annotations:
+  #   pv.beta.kubernetes.io/gid: "1234"
+  labels:
+    type: local
+spec:
+  storageClassName: nxiq
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/nxiq/sonatype-work"

@@ -1,0 +1,64 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.33">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.73">
+    <script>node {
+   def mvnHome
+   
+   stage(&apos;Preparation&apos;) {  
+      git &apos;https://github.com/sonatype-nexus-community/struts2-rce&apos;
+      mvnHome = &apos;/usr/local&apos;
+      REGISTRY = &apos;sola.local:8881&apos;
+      IMAGENAME = &apos;webgoat-iq-clair&apos;
+      JENKINS_CRED = &apos;docker-rgy-id&apos;
+      SCANFILES_DIR = &apos;./scanfiles&apos;
+      
+   }
+   
+   stage(&apos;Build&apos;) {
+      withEnv([&quot;MVN_HOME=$mvnHome&quot;]) {
+        sh &apos;&quot;$MVN_HOME/bin/mvn&quot; -Dmaven.test.failure.ignore clean package&apos;
+      }
+   }
+   
+   stage(&apos;Results&apos;) {
+      archiveArtifacts &apos;target/*.jar&apos;
+   }
+   
+   stage(&apos;Print Env&apos;){
+       sh &apos;env &gt; env.txt&apos; 
+       for (String i : readFile(&apos;env.txt&apos;).split(&quot;\r?\n&quot;)) {
+         println i
+       }
+   }
+   
+   stage(&apos;Build image&apos;){
+       docker.withRegistry(&quot;https://${REGISTRY}&quot;, &quot;${JENKINS_CRED}&quot;) {
+                        def customImage = docker.build(&quot;${IMAGENAME}&quot;)
+                        customImage.push(&quot;${BUILD_ID}&quot;)
+                        //customImage.push(&quot;${BUILD_ID}&quot;)
+                    }
+   }
+   
+   stage(&apos;Save docker image to archive file&apos;){
+       //sh &apos;mkdir ${SCANFILES_DIR}&apos;
+       
+       dir (&quot;${SCANFILES_DIR}&quot;) {
+        //writeFile file:&apos;dummy1&apos;, text:&apos;&apos;
+        sh &quot;docker save -o image_output.tar ${IMAGENAME}&quot;
+       }
+    
+   }
+   
+   stage(&apos;Scan image with Clair&apos;){
+       sh &quot;/Users/sotudeko/Development/scan-artifacts/ubs-demo/clair-scanner --ip host.docker.internal -r ./clair-scanner-output.json ${IMAGENAME}:latest&quot;
+   }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

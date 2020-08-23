@@ -1,0 +1,30 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.18">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.47">
+    <script>node {
+
+   stage(&apos;Build&apos;) {
+      // Run the maven build
+    //   dir(&apos;/Users/sotudeko/Git-repos/nuc&apos;){
+    //     sh &quot;&apos;/usr/local/bin/mvn&apos; -Dmaven.test.failure.ignore clean package&quot;
+    //     archiveArtifacts artifacts: &quot;**/target/*.war&quot;
+        
+    //   }
+   }
+   
+   stage(&apos;Scan&apos;){
+       dir(&apos;/Users/sotudeko/.jenkins/jobs/nuc-pipeline/builds/11/archive/target&apos;){
+    nexusPolicyEvaluation failBuildOnNetworkError: false, iqApplication: &apos;nuc&apos;, iqScanPatterns: [[scanPattern: &apos;**/*.war&apos;]], iqStage: &apos;build&apos;, jobCredentialsId: &apos;ci-user&apos;
+       }
+   }
+   
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

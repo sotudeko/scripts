@@ -1,0 +1,94 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.33">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.73">
+    <script>node {
+    
+    //def IQ_ORGANISATION = &quot;${JOB_NAME}&quot;.substring(0, &quot;${JOB_NAME}&quot;.indexOf(&apos;/&apos;))
+    //def ORG = &quot;${IQ_ORGANISATION}&quot;
+    def IQ_APPLICATION = &quot;${JOB_NAME}&quot;.substring(&quot;${JOB_NAME}&quot;.indexOf(&apos;/&apos;)+1)
+    IQ_APPLICATION = &quot;${IQ_APPLICATION}&quot;.replaceAll(~/\//, &quot;_&quot;)
+    IQ_ORGANISATIONS_FILE = &apos;./existing_organisations.json&apos;
+
+        
+    stage(&quot;Prep&quot;){
+        echo &quot;Job name: ${JOB_NAME}&quot;
+        //echo &quot;IQ_ORGANISATION name: ${IQ_ORGANISATION}&quot;
+        echo &quot;IQ_APPLICATION name: ${IQ_APPLICATION}&quot;
+    }
+    
+    // stage(&apos;Build&apos;) { 
+        
+    //     def output_file = &apos;output.json&apos;
+    //     def url = &quot;http://localhost:8070/api/v2/applications?publicId=${IQ_APPLICATION}&quot;
+        
+    //     def status = sh script: &quot;curl -s -u admin:admin123 -w %{http_code} -X GET $url -o ${output_file}&quot;, returnStdout: true
+        
+    //     echo &quot;----- output start ----------------&quot;
+        
+    //     sh &quot;cat ${output_file} | python -m json.tool&quot;
+
+    //     echo &quot;----- output end ----------------&quot;
+
+    //     echo &quot;----- status ----------------&quot;
+        
+    //     if (status == &apos;200&apos; || status == &apos;201&apos;) {
+    //         echo &quot;Success&quot;
+    //     }
+    //     else {
+    //         error(&quot;Returned status code = [$status] when calling $url&quot;)
+    //     }
+         
+    // }
+    
+    // stage(&apos;Execute Job&apos;) { 
+    //     echo &quot;Execute job&quot;
+    //     build job: &apos;IQ_Application_Setup&apos;, parameters: [string(name: &apos;IQ_ORGANISATION&apos;, value: &apos;abc&apos;), string(name: &apos;IQ_APPLICATION&apos;, value: &apos;def&apos;)], quietPeriod: 2
+    // }
+    
+    // stage(&apos;Create Organisation&apos;){
+     
+    //         def status = sh script: &quot;curl -u admin:admin123 -X POST -w %{http_code} -H &apos;Content-Type: application/json&apos; -o ./org.json -d &apos;{\&quot;name\&quot;: \&quot;My Organization\&quot;}&apos; http://localhost:8070/api/v2/organizations&quot;, returnStdout: true
+            
+    //         echo &quot;status is ${status}&quot;
+            
+    //         if (status == &apos;200&apos; || status == &apos;201&apos;) {
+    //             echo &quot;Success&quot;
+    //             def org = readJSON file: &apos;./org.json&apos;
+    //             echo &quot;${org}&quot;
+    //         }
+    //         else {
+    //             error(&quot;Returned status code = [$status] when calling&quot;)
+    //         }
+    // }
+    
+    stage (&quot;Existing orgs&quot;){
+        def status = sh returnStdout: true, script: &quot;curl -s -u admin:admin123 -X GET -o ${IQ_ORGANISATIONS_FILE} &apos;http://localhost:8070/api/v2/organizations&apos;&quot;
+		def organisations = readJSON file: &quot;${IQ_ORGANISATIONS_FILE}&quot;
+		//sh &quot;cat ${IQ_ORGANISATIONS_FILE} | python -m json.tool&quot;
+		echo &quot;${organisations}&quot;
+		echo &quot;${status}&quot;
+// 		echo &quot;size of status &quot; + organisations.size()
+// 		def orgs = &quot;${status.organizations}&quot;
+// 		echo &quot;${orgs}&quot;
+
+						for (i = 0; i &lt; organisations.size(); i++){
+							echo &quot;looping organizations ${organisations.organizations[i]}&quot;
+							echo &quot;got ${status.organizations[i].name}&quot;
+
+				// 			if (organisations.organizations[i].name == &quot;${IQ_ORGANISATION}&quot;) {
+				// 				IQ_ORGANISATION_ID = organisations.organizations[i].id
+				// 				echo &quot;get existing ord id ${IQ_ORGANISATION_ID}&quot;
+				// 				break
+				// 			}
+						}
+    }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

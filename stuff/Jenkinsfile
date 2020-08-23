@@ -1,0 +1,20 @@
+
+pipeline {
+
+    stage('Build/Pull') {
+        sh "rm -f ${env.WORKSPACE}/*.tar"
+        sh 'docker pull sonatype/nexus3'
+        sh "docker save sonatype/nexus3 -o ${env.WORKSPACE}/nexus.tar"
+    }
+    stage('IQ Evaluation') {
+        nexusPolicyEvaluation (
+            failBuildOnNetworkError: false, 
+            iqApplication: 'dockerapp',
+            iqScanPatterns: [[scanPattern: '*.tar']],
+            iqStage: 'release',
+            jobCredentialsId: ''
+        )
+    }
+
+}
+

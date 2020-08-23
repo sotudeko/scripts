@@ -1,0 +1,23 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.sonatype.nexus.ci.nxrm.v3.CreateTagStep plugin="nexus-jenkins-plugin@3.5.20190215-104018.385de7e">
+      <nexusInstanceId>nxrm3</nexusInstanceId>
+      <tagName>test-tag-1</tagName>
+      <tagAttributesJson>{&quot;id&quot;:&quot;1&quot;}</tagAttributesJson>
+    </org.sonatype.nexus.ci.nxrm.v3.CreateTagStep>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

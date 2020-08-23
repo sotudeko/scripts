@@ -1,0 +1,37 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.jvnet.hudson.plugins.repositoryconnector.ArtifactResolver plugin="repository-connector@1.2.4">
+      <targetDirectory></targetDirectory>
+      <artifacts>
+        <org.jvnet.hudson.plugins.repositoryconnector.Artifact>
+          <groupId>WebGoat</groupId>
+          <artifactId>WebGoat</artifactId>
+          <classifier></classifier>
+          <version>5.5.7</version>
+          <extension>war</extension>
+          <targetFileName></targetFileName>
+        </org.jvnet.hudson.plugins.repositoryconnector.Artifact>
+      </artifacts>
+      <failOnError>true</failOnError>
+      <enableRepoLogging>true</enableRepoLogging>
+      <snapshotUpdatePolicy>daily</snapshotUpdatePolicy>
+      <releaseUpdatePolicy>daily</releaseUpdatePolicy>
+      <snapshotChecksumPolicy>warn</snapshotChecksumPolicy>
+      <releaseChecksumPolicy>warn</releaseChecksumPolicy>
+    </org.jvnet.hudson.plugins.repositoryconnector.ArtifactResolver>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

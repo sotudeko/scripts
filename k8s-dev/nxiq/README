@@ -1,0 +1,10 @@
+
+This deployment mounts a volume on the node at /mnt/nxiq/sonatype-work.
+
+Before running the scripts:
+1. Access the node - minikube ssh
+2. sudo mkdir -p /mnt/nxiq/sonatype-work
+3. sudo chmod 777 /mnt/nxiq/sonatype-work 
+
+I'm sure there's a way to auto do all this but havent figured it out, and in any case, the mount dir would be
+replaced with a NFS server filesystem.

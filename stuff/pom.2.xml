@@ -1,0 +1,26 @@
+<!-- to download from nexus -->
+  	<repositories>
+	    <repository>
+	      <id>nexus</id>
+	      <url>http://localhost:8081/repository/mvn-public</url>
+	      <releases>
+	         <enabled>true</enabled>
+	      </releases>
+	      <snapshots>
+	         <enabled>true</enabled>
+	      </snapshots>
+	    </repository>
+  	</repositories>
+  
+    <!-- to publish to nexus -->
+    <distributionManagement>
+	    <snapshotRepository>
+	      <id>nexus-snapshots</id>
+	      <url>http://localhost:8081/repository/mvn-snapshots</url>
+	    </snapshotRepository>
+	    <repository>
+	      <id>nexus-releases</id>
+	      <url>http://localhost:8081/repository/mvn-releases</url>
+	    </repository>
+    </distributionManagement>
+

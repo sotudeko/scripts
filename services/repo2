@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/opt/nxrm2/latest/bin/nexus $1
+
