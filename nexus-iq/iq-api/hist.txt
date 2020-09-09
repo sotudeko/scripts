@@ -1,0 +1,206 @@
+    1  jenkins start
+    2  pwd
+    3  pwd
+    4  cd Development
+    5  ls
+    6  cd mygithub/dev
+    7  pwd
+    8  ls
+    9  cd bin
+   10  ls
+   11  which `jenkins`
+   12  pwd
+   13  cd ../services
+   14  ls
+   15  ./3_jenkins-start.sh
+   16  pwd
+   17  cd
+   18  cd /opt
+   19  ls -l
+   20  cd nxiq
+   21  ls -l
+   22  vi config.yml.keep
+   23  cp config.yml.keep ~/Development/mygithub/dev/
+   24  pwd
+   25  ls -l
+   26  vi config.yml
+   27  pwd
+   28  rm -rf *
+   29  pwd
+   30  tar xzvf ~/Downloads/nexus-iq-server-1.90.0-01-bundle.tar.gz
+   31  cp ~/Development/mygithub/dev/config.yml.keep .
+   32  ls -l
+   33  mv config.yml config.yml.new
+   34  mv config.yml.keep config.yml
+   35  ls -l
+   36  ln -s ./nexus-iq-cli-1.90.0-01.jar nexus-iq-cli
+   37  ln -s ./nexus-iq-server-1.90.0-01.jar nexus-iq-server
+   38  iq start
+   39  pwd
+   40  echo $PATH
+   41  bash
+   42  cd
+   43  cd ~/Development/mygithub/dev/services
+   44  ls -l
+   45  cat iq
+   46  cat nexus-iq-server.sh
+   47  cat iq
+   48  rm -rf iq
+   49  ln -s ./nexus-iq-server.sh iq
+   50  ls -l
+   51  cat repo
+   52  rm repo
+   53  ln -s /opt/nxrm3/latest/bin/nexus repo
+   54  pwd
+   55  ls -l
+   56  cd
+   57  ls -a
+   58  ln -s ./.bash_profile .zprofile
+   59  exit
+   60  cd
+   61  cd Development/mygithub/dev
+   62  ls -l
+   63  cd iq-api
+   64  ls
+   65  cat policies-get.sh
+   66  pwd
+   67  sh policies-get.sh
+   68  ls
+   69  cat policy-violations.sh
+   70  policy-violations.sh 6d29a8229a4e484e94d37cb44fa347bf
+   71  sh policies-get.sh
+   72  policy-violations.sh 1c0e53dd933747498dea26c4bab29bdd
+   73  policy-violations.sh 1c0e53dd933747498dea26c4bab29bdd > phpapp.json
+   74  ls
+   75  cat 4_get-application-report.sh
+   76  ./4_get-application-report.sh d951a3478de148d5b417a3e8cd443ad3 1bc608a0f9a740deb50bece4ab91e318
+   77  cat 5_get-application-report.sh
+   78  cat 4_get-application-report.sh
+   79  ./4_get-application-report.sh php-app 1bc608a0f9a740deb50bece4ab91e318
+   80  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/reports/applications/d951a3478de148d5b417a3e8cd443ad3'
+   81  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/reports/applications/d951a3478de148d5b417a3e8cd443ad3' | python -m json.tool
+   82  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/1bc608a0f9a740deb50bece4ab91e318/raw' | python -m json.tool
+   83  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/1bc608a0f9a740deb50bece4ab91e318/raw' | python -m json.tool > php-app-report.json
+   84  pwd
+   85  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/cc94b5cedd35499e9cbf03dbdc57e4d4/raw' | python -m json.tool > php-app-report.json
+   86  curl -u admin:admin123 http://localhost:8070/api/v2/claim/components
+   87  pwd
+   88  vi claim-payload.json
+   89  cp claim-payload.json claim-php.json
+   90  vi claim-php.json
+   91  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php.json http://localhost:8070/api/v2/claim/components
+   92  vi claim-php.json
+   93  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php.json http://localhost:8070/api/v2/claim/components
+   94  curl -u admin:admin123 http://localhost:8070/api/v2/claim/components
+   95  curl -X DELETE -u admin:admin123 http://localhost:8070/api/v2/claim/components/3dc83da7100b409abaa9
+   96  cat claim-php.json
+   97  cp claim-php.json cphp.jso
+   98  vi claim-php.json
+   99  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php.json http://localhost:8070/api/v2/claim/components
+  100  vi claim-php.json
+  101  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php.json http://localhost:8070/api/v2/claim/components
+  102  mv cphp.jso claim-php.json
+  103  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php.json http://localhost:8070/api/v2/claim/components
+  104  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php.json http://localhost:8070/api/v2/claim/components
+  105  curl -u admin:admin123 http://localhost:8070/api/v2/claim/components/3dc83da7100b409abaa9
+  106  vi claim-php.json
+  107  cp claim-php.json cphp.json
+  108  vi claim-php.json
+  109  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php.json http://localhost:8070/api/v2/claim/components
+  110  vi claim-php.json
+  111  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php.json http://localhost:8070/api/v2/claim/components
+  112  ls -l
+  113  ls -lrt
+  114  mv claim-php.json claim-php-by-purl.json
+  115  mv cphp.json claim-php-by-coordinate.json
+  116  vi claim-php-by-purl.json
+  117  ls -lrt
+  118  cat claim-php-by-coordinate.json
+  119  vi claim-php-by-purl.json
+  120  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php-by-purl.json http://localhost:8070/api/v2/claim/components
+  121  ls -lrt
+  122  mv claim-php-by-purl.json claim-php-by-coordinate1.json
+  123  ls -lrt
+  124  cat claim-php-by-coordinate.json
+  125  mv claim-php-by-coordinate.json claim-php-by-purl.json
+  126  mv claim-php-by-coordinate1.json claim-php-by-coordinate.json
+  127  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php-by-purl.json http://localhost:8070/api/v2/claim/components
+  128  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php-by-purl.json http://localhost:8070/api/v2/claim/components
+  129  pwd
+  130  vi claim-php-by-purl.json
+  131  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php-by-purl.json http://localhost:8070/api/v2/claim/components
+  132  cat claim-php-by-purl.json
+  133  cat claim-php-by-purl.json
+  134  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php-by-purl.json http://localhost:8070/api/v2/claim/components
+  135  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/cc94b5cedd35499e9cbf03dbdc57e4d4/raw' | python -m json.tool 
+  136  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/cc94b5cedd35499e9cbf03dbdc57e4d4/raw' 
+  137  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php-by-purl.json http://localhost:8070/api/v2/claim/components
+  138  pwd
+  139  pwd
+  140  cd ../../../php-dev
+  141  ls
+  142  pwd
+  143  cd ..
+  144  cd scan-artifacts/php-scan
+  145  l
+  146  ls
+  147  iqscan php-app .
+  148  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/c03eb82a5ccf46f1841748550e0e9b70/raw' 
+  149  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/c03eb82a5ccf46f1841748550e0e9b70/raw' | python -m json.tool
+  150  cd -
+  151  cd 
+  152  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/c03eb82a5ccf46f1841748550e0e9b70/raw' | python -m json.tool
+  153  pwd
+  154  cd 
+  155  cd Development/scan-artifacts/php-scan
+  156  ls -l
+  157  pwd
+  158  cd ../../mygithub/dev/iq-api
+  159  ls -lrt
+  160  vi claim-php-by-purl.json
+  161  cp claim-php-by-purl.json cpp.json
+  162  vi cpp.json
+  163  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@claim-php-by-purl.json http://localhost:8070/api/v2/claim/components
+  164  cat claim-php-by-purl.json
+  165  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@cpp.json http://localhost:8070/api/v2/claim/components
+  166  cat cpp.json
+  167   vi cpp.json
+  168  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@cpp.json http://localhost:8070/api/v2/claim/components
+  169  cat cpp.json
+  170  cp cpp.json disclaimer.json
+  171  vi disclaimer.json
+  172  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@disclaimer.json  http://localhost:8070/api/v2/claim/components
+  173  cat disclaimer.json
+  174  cp disclaimer.json trycomposer.json
+  175  vi trycomposer.json
+  176  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@trycomposer.json  http://localhost:8070/api/v2/claim/components
+  177  vi trycomposer.json
+  178  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@trycomposer.json  http://localhost:8070/api/v2/claim/components
+  179  vi trycomposer.json
+  180  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@trycomposer.json  http://localhost:8070/api/v2/claim/components
+  181  vi trycomposer.json
+  182  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@trycomposer.json  http://localhost:8070/api/v2/claim/components
+  183  vi trycomposer.json
+  184  curl -u admin:admin123 -X POST -H "Content-Type: application/json" -d@trycomposer.json  http://localhost:8070/api/v2/claim/components
+  185  cat trycomposer.json
+  186  cat claim-php-by-purl.json
+  187  cp claim-php-by-purl.json phpmaven.json
+  188  vi phpmaven.json
+  189  ls
+  190  ls -lrty
+  191  ls -lrt
+  192  history 1
+  193  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/c96f8913c97d4cf38c690f62cdec575c/raw' | python -m json.tool
+  194  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app/reports/c96f8913c97d4cf38c690f62cdec575c/raw' 
+  195  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app2/reports/c96f8913c97d4cf38c690f62cdec575c/raw' 
+  196  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app2/reports/c96f8913c97d4cf38c690f62cdec575c/raw' > newscan.json
+  197  curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications/php-app2/reports/c96f8913c97d4cf38c690f62cdec575c/raw' | python -m json.tool > newscan.json
+  198  ls -lrt
+  199  cat trycomposer.json
+  200  cat phpmaven.json
+  201  cat newscan.json
+  202  curl -u admin:admin123 -X GET http://localhost:8070/api/v2/reports/components/waivers
+  203  curl -u admin:admin123 -X GET http://localhost:8070/api/v2/reports/components/waivers | python -m json.tool
+  204  curl -u admin:admin123 'http://localhost:8070/api/v2/vulnerabilities/CVE-2017-5929'
+  205  curl -u admin:admin123 'http://localhost:8070/api/v2/vulnerabilities/CVE-2017-5929' | python -m json.tool
+  206  history 1

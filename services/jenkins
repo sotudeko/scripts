@@ -1,6 +1,6 @@
 #!/bin/sh
 
-JENKINS_HOME=/opt/jenkins
+JENKINS_HOME=/opt/.delete_all/jenkins
 JAVA_OPTIONS="-Xmx1024m -XX:MaxPermSize=128m"
 RUN_AS_USER=sotudeko
 
