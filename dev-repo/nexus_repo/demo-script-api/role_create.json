@@ -1,0 +1,7 @@
+{
+ "name":"demo-role-1-name", 
+ "roleId":"demo-role-1-id", 
+ "description":"demo-role-1-name description", 
+ "privileges":["nx-component-upload", "nx-repository-admin-*-*-*", "nx-blobstores-all"], 
+ "roles":["nx-admin","nx-anonymous"]
+}

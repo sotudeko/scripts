@@ -1,0 +1,124 @@
+{
+  "policies": [
+    {
+      "id": "94f1165129be4f51832759eadbc795b8",
+      "name": "Architecture-Cleanup-Falcon",
+      "ownerId": "ROOT_ORGANIZATION_ID",
+      "threatLevel": 1,
+      "policyViolationGrandfatheringAllowed": true,
+      "constraints": [
+        {
+          "id": "a7dad507a50047758f77f77ce423a0fb",
+          "name": "Test components",
+          "operator": "OR",
+          "conditions": [
+            {
+              "conditionTypeId": "Coordinates",
+              "operator": "match",
+              "value": "maven:junit:junit:*:*:*",
+              "conditionIndex": 0
+            },
+            {
+              "conditionTypeId": "Coordinates",
+              "operator": "match",
+              "value": "maven:ant:ant:*:*:*",
+              "conditionIndex": 1
+            },
+            {
+              "conditionTypeId": "Coordinates",
+              "operator": "match",
+              "value": "maven:org.apache.ant:ant:*:*:*",
+              "conditionIndex": 2
+            },
+            {
+              "conditionTypeId": "Coordinates",
+              "operator": "match",
+              "value": "maven:org.seleniumhq.selenium:*:*:*:*",
+              "conditionIndex": 3
+            }
+          ]
+        }
+      ],
+      "actions": {},
+      "notifications": {
+        "userNotifications": [],
+        "roleNotifications": [],
+        "jiraNotifications": []
+      }
+    },
+    {
+      "id": "ba2ca6a275b7480497179dd4e025b264",
+      "name": "Architecture-Quality-Falcon",
+      "ownerId": "ROOT_ORGANIZATION_ID",
+      "threatLevel": 1,
+      "policyViolationGrandfatheringAllowed": true,
+      "constraints": [
+        {
+          "id": "90b919a59e444184b5ca21944715c824",
+          "name": "Version is old",
+          "operator": "OR",
+          "conditions": [
+            {
+              "conditionTypeId": "AgeInDays",
+              "operator": "older than",
+              "value": "1825",
+              "conditionIndex": 0
+            }
+          ]
+        },
+        {
+          "id": "65c4f0d2519849c5880fd04a1ff13127",
+          "name": "Version is unpopular",
+          "operator": "OR",
+          "conditions": [
+            {
+              "conditionTypeId": "RelativePopularity",
+              "operator": "<=",
+              "value": "10",
+              "conditionIndex": 0
+            }
+          ]
+        }
+      ],
+      "actions": {},
+      "notifications": {
+        "userNotifications": [],
+        "roleNotifications": [],
+        "jiraNotifications": []
+      }
+    },
+    {
+      "id": "86bd49a25f62483c919df57fd56cbce5",
+      "name": "Vendor-policy-Falcon",
+      "ownerId": "ROOT_ORGANIZATION_ID",
+      "threatLevel": 8,
+      "policyViolationGrandfatheringAllowed": false,
+      "constraints": [
+        {
+          "id": "3794e2f67b26408babd26a6cc968036d",
+          "name": "My Constraint",
+          "operator": "OR",
+          "conditions": [
+            {
+              "conditionTypeId": "AgeInDays",
+              "operator": "older than",
+              "value": "730",
+              "conditionIndex": 0
+            }
+          ]
+        }
+      ],
+      "actions": {
+        "stage-release": "fail",
+        "release": "fail",
+        "build": "fail"
+      },
+      "notifications": {
+        "userNotifications": [],
+        "roleNotifications": [],
+        "jiraNotifications": []
+      }
+    }
+  ]
+  
+}

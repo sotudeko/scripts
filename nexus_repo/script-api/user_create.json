@@ -1,0 +1,8 @@
+{
+ "username":"scientist", 
+ "firstname":"Bright", 
+ "lastname":"Spark", 
+ "email": "brightspark@none.com",
+ "password" : "changeme",
+ "roles":["nx-admin","nx-anonymous"]
+}

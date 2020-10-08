@@ -1,0 +1,92 @@
+{
+    "components": [
+        {
+            "componentIdentifier": {
+                "coordinates": {
+                    "name": "components/jqueryui",
+                    "version": "1.11.4"
+                },
+                "format": "composer"
+            },
+            "displayName": "components/jqueryui : 1.11.4",
+            "hash": "ee5da3f5635574750640",
+            "licenseData": {
+                "declaredLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "effectiveLicenseThreats": [
+                    {
+                        "licenseThreatGroupCategory": "severe",
+                        "licenseThreatGroupLevel": 5,
+                        "licenseThreatGroupName": "Sonatype Special Licenses"
+                    }
+                ],
+                "effectiveLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "observedLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "overriddenLicenses": [],
+                "status": "Open"
+            },
+            "matchState": "exact",
+            "packageUrl": "pkg:composer/components%2Fjqueryui@1.11.4",
+            "pathnames": [
+                "./composer.lock/components\\jqueryui:1.11.4"
+            ],
+            "proprietary": false,
+            "securityData": {
+                "securityIssues": [
+                    {
+                        "reference": "CVE-2016-7103",
+                        "severity": 6.1,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "severe",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-7103"
+                    }
+                ]
+            }
+        },
+        {
+            "componentIdentifier": null,
+            "displayName": "bower-asset/jquery:2.1.1",
+            "hash": "3dc83da7100b409abaa9",
+            "licenseData": null,
+            "matchState": "unknown",
+            "packageUrl": null,
+            "pathnames": [
+                "./composer.lock/bower-asset\\jquery:2.1.1"
+            ],
+            "proprietary": false,
+            "securityData": null
+        },
+        {
+            "componentIdentifier": null,
+            "displayName": "bower-asset/bootstrap:v3.2.0",
+            "hash": "43dcc2344e0a7db8fad3",
+            "licenseData": null,
+            "matchState": "unknown",
+            "packageUrl": null,
+            "pathnames": [
+                "./composer.lock/bower-asset\\bootstrap:v3.2.0"
+            ],
+            "proprietary": false,
+            "securityData": null
+        }
+    ],
+    "matchSummary": {
+        "knownComponentCount": 1,
+        "totalComponentCount": 3
+    }
+}

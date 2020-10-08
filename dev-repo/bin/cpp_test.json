@@ -1,0 +1,295 @@
+{
+    "components": [
+        {
+            "componentIdentifier": {
+                "coordinates": {
+                    "channel": "stable",
+                    "name": "zlib",
+                    "owner": "conan",
+                    "version": "1.2.0"
+                },
+                "format": "conan"
+            },
+            "displayName": "stable : zlib : conan : 1.2.0",
+            "hash": "6148d03ec9c192ac66ed",
+            "licenseData": {
+                "declaredLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "effectiveLicenseThreats": [
+                    {
+                        "licenseThreatGroupCategory": "severe",
+                        "licenseThreatGroupLevel": 5,
+                        "licenseThreatGroupName": "Sonatype Special Licenses"
+                    }
+                ],
+                "effectiveLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "observedLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "overriddenLicenses": [],
+                "status": "Open"
+            },
+            "matchState": "exact",
+            "packageUrl": "pkg:conan/zlib@1.2.0?channel=stable&owner=conan",
+            "pathnames": [
+                "./conanfile.py/zlib/1.2.0@conan/stable"
+            ],
+            "proprietary": false,
+            "securityData": {
+                "securityIssues": [
+                    {
+                        "reference": "CVE-2005-2096",
+                        "severity": 7.5,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "critical",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2005-2096"
+                    }
+                ]
+            }
+        },
+        {
+            "componentIdentifier": {
+                "coordinates": {
+                    "channel": "stable",
+                    "name": "apache-apr",
+                    "owner": "jgsogo",
+                    "version": "0.9.1"
+                },
+                "format": "conan"
+            },
+            "displayName": "stable : apache-apr : jgsogo : 0.9.1",
+            "hash": "68efba92b636e925b8eb",
+            "licenseData": {
+                "declaredLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "effectiveLicenseThreats": [
+                    {
+                        "licenseThreatGroupCategory": "severe",
+                        "licenseThreatGroupLevel": 5,
+                        "licenseThreatGroupName": "Sonatype Special Licenses"
+                    }
+                ],
+                "effectiveLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "observedLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "overriddenLicenses": [],
+                "status": "Open"
+            },
+            "matchState": "exact",
+            "packageUrl": "pkg:conan/apache-apr@0.9.1?channel=stable&owner=jgsogo",
+            "pathnames": [
+                "./conanfile.py/apache-apr/0.9.1@jgsogo/stable"
+            ],
+            "proprietary": false,
+            "securityData": {
+                "securityIssues": [
+                    {
+                        "reference": "CVE-2009-2412",
+                        "severity": 10.0,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "critical",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2412"
+                    },
+                    {
+                        "reference": "CVE-2009-2699",
+                        "severity": 5.0,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "severe",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-2699"
+                    },
+                    {
+                        "reference": "CVE-2012-0840",
+                        "severity": 5.0,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "severe",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-0840"
+                    },
+                    {
+                        "reference": "CVE-2011-0419",
+                        "severity": 4.3,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "severe",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-0419"
+                    },
+                    {
+                        "reference": "CVE-2017-12613",
+                        "severity": 7.1,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "critical",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-12613"
+                    }
+                ]
+            }
+        },
+        {
+            "componentIdentifier": {
+                "coordinates": {
+                    "channel": "stable",
+                    "name": "libxml2",
+                    "owner": "bincrafters",
+                    "version": "2.9.8"
+                },
+                "format": "conan"
+            },
+            "displayName": "stable : libxml2 : bincrafters : 2.9.8",
+            "hash": "b763e692fac53d499815",
+            "licenseData": {
+                "declaredLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "effectiveLicenseThreats": [
+                    {
+                        "licenseThreatGroupCategory": "severe",
+                        "licenseThreatGroupLevel": 5,
+                        "licenseThreatGroupName": "Sonatype Special Licenses"
+                    }
+                ],
+                "effectiveLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "observedLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "overriddenLicenses": [],
+                "status": "Open"
+            },
+            "matchState": "exact",
+            "packageUrl": "pkg:conan/libxml2@2.9.8?channel=stable&owner=bincrafters",
+            "pathnames": [
+                "./conanfile.py/libxml2/2.9.8@bincrafters/stable"
+            ],
+            "proprietary": false,
+            "securityData": {
+                "securityIssues": [
+                    {
+                        "reference": "CVE-2018-9251",
+                        "severity": 5.3,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "severe",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-9251"
+                    },
+                    {
+                        "reference": "CVE-2019-19956",
+                        "severity": 7.5,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "critical",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19956"
+                    },
+                    {
+                        "reference": "CVE-2018-14404",
+                        "severity": 7.5,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "critical",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14404"
+                    },
+                    {
+                        "reference": "CVE-2018-14567",
+                        "severity": 6.5,
+                        "source": "cve",
+                        "status": "Open",
+                        "threatCategory": "severe",
+                        "url": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-14567"
+                    }
+                ]
+            }
+        },
+        {
+            "componentIdentifier": {
+                "coordinates": {
+                    "channel": "stable",
+                    "name": "opencv",
+                    "owner": "drl",
+                    "version": "2.2"
+                },
+                "format": "conan"
+            },
+            "displayName": "stable : opencv : drl : 2.2",
+            "hash": "b93dff74ea9c31aa9589",
+            "licenseData": {
+                "declaredLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "effectiveLicenseThreats": [
+                    {
+                        "licenseThreatGroupCategory": "severe",
+                        "licenseThreatGroupLevel": 5,
+                        "licenseThreatGroupName": "Sonatype Special Licenses"
+                    }
+                ],
+                "effectiveLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "observedLicenses": [
+                    {
+                        "licenseId": "UNSPECIFIED",
+                        "licenseName": "Not Provided"
+                    }
+                ],
+                "overriddenLicenses": [],
+                "status": "Open"
+            },
+            "matchState": "exact",
+            "packageUrl": "pkg:conan/opencv@2.2?channel=stable&owner=drl",
+            "pathnames": [
+                "./conanfile.py/opencv/2.2@drl/stable"
+            ],
+            "proprietary": false,
+            "securityData": {
+                "securityIssues": []
+            }
+        }
+    ],
+    "matchSummary": {
+        "knownComponentCount": 4,
+        "totalComponentCount": 4
+    }
+}

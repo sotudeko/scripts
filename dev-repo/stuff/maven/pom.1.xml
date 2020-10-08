@@ -1,0 +1,25 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>nexus-proxy</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.10</version>
+    </dependency>
+  </dependencies>
+<!-- to publish to nexus -->
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus</id>
+      <url>http://localhost:8081/repository/mvn-snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-releases</id>
+      <url>http://localhost:8081/repository/mvn-releases/</url>
+    </repository>
+  </distributionManagement>
+</project>
+~           

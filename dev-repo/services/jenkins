@@ -1,0 +1,42 @@
+#!/bin/sh
+
+JENKINS_HOME=/opt/jenkins
+JAVA_OPTIONS="-Xmx1024m -XX:MaxPermSize=128m"
+RUN_AS_USER=sotudeko
+
+do_start()
+{
+    cd $JENKINS_HOME
+    java -jar ${JENKINS_HOME}/jenkins.war > /dev/null 2>&1 &
+    echo "Starting jenkins"
+}
+
+do_console()
+{
+    cd $JENKINS_HOME
+    java -jar ${JENKINS_HOME}/jenkins.war
+}
+
+do_stop()
+{
+    pid=`ps aux | grep jenkins | grep -vE '(stop|grep)' | awk '{print $2}'`
+    kill $pid
+    echo "Killed jenkins - PID $pid"
+}
+
+do_usage()
+{
+    echo "Usage: jenkins [console|start|stop]"
+}
+
+case $1 in
+console) do_console
+;;
+start) do_start
+;;
+stop) do_stop
+;;
+*) do_usage
+;;
+esac
+

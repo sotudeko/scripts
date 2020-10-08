@@ -1,0 +1,14 @@
+{
+	"hash": "6d0684d8acf85cd6e7f2",
+	"comment": "c2",
+	"createTime": "2020-01-09T15:01:10.000Z",
+	"componentIdentifier": {
+		"format": "a-name",
+		"coordinates": {
+			"name": "n",
+			"qualifier": "q",
+			"version": "v"
+		}
+	},
+	"packageUrl": "pkg:a-name/n@v?qualifier=q"
+}

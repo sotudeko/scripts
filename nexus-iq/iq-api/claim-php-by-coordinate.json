@@ -1,0 +1,11 @@
+{
+	"hash": "3dc83da7100b409abaa9",
+	"componentIdentifier": {
+	  "format": "composer",
+		"coordinates": {
+		  "name": "bower-asset/jquery",
+			"version":"2.1.1"
+		}
+	}
+}
+

@@ -1,0 +1,21 @@
+<settings>
+
+  <servers>
+    <server>
+      <id>nexus-snapshots</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+    <server>
+      <id>nexus-releases</id>
+      <username>admin</username>
+      <password>admin123</password>
+    </server>
+  </servers>
+
+  <pluginGroups>
+     <pluginGroup>com.sonatype.clm</pluginGroup>
+   </pluginGroups>
+
+</settings>
+

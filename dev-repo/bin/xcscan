@@ -1,0 +1,17 @@
+#!/bin/bash
+
+app=$1
+sfile=$2
+
+debug=
+
+user=admin
+passwd=admin123
+#stage=stage-release
+
+#user=$3
+#passwd=$4
+stage=build
+
+java -jar /opt/nexus-iq/nexus-iq-cli -i ${app} -s http://localhost:8070 -a ${user}:${passwd} -t ${stage} ${sfile} ${debug} -xc
+

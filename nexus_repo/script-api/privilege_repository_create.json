@@ -1,0 +1,9 @@
+{
+    "name":"my-priv-4",
+    "repository":"maven-releases",
+    "description":"my-priv-33",
+    "actions":"read,browse",
+    "type":"repository-view",
+    "format":"maven2"
+   }
+   

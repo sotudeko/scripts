@@ -1,0 +1,5 @@
+{
+  "name": "demo-blob",
+  "type": "groovy",
+  "content": "blobStore.createFileBlobStore('demo-blob', 'demo-blob')"
+}

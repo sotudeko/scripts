@@ -1,0 +1,276 @@
+{
+    "applicationViolations": [
+        {
+            "application": {
+                "contactUserName": null,
+                "id": "2a091dd22af542e3be716ae28d87ccf6",
+                "name": "GatekeeperPlugin",
+                "organizationId": "53a212ecf5db45ad9278667f0503b951",
+                "publicId": "GatekeeperPlugin"
+            },
+            "policyViolations": [
+                {
+                    "component": {
+                        "componentIdentifier": null,
+                        "hash": "d060b8eee9a8ae0290e3",
+                        "packageUrl": null,
+                        "proprietary": false
+                    },
+                    "constraintViolations": [
+                        {
+                            "constraintId": "e53f011903ad44f8b6541813093b5f39",
+                            "constraintName": "Unknown 3rd party component",
+                            "reasons": [
+                                {
+                                    "reason": "Match state was 'Unknown'",
+                                    "reference": null
+                                },
+                                {
+                                    "reason": "Component does not contain proprietary packages",
+                                    "reference": null
+                                }
+                            ]
+                        }
+                    ],
+                    "policyId": "1c0e53dd933747498dea26c4bab29bdd",
+                    "policyName": "Component-Unknown",
+                    "policyViolationId": "d1604c85776a480b857e7ce8f6b1e904",
+                    "reportId": "0ae6618915834963931e1d08d1f3f86c",
+                    "reportUrl": "ui/links/application/GatekeeperPlugin/report/0ae6618915834963931e1d08d1f3f86c",
+                    "stageId": "release",
+                    "threatLevel": 2
+                },
+                {
+                    "component": {
+                        "componentIdentifier": null,
+                        "hash": "eab38859f592ded0089c",
+                        "packageUrl": null,
+                        "proprietary": false
+                    },
+                    "constraintViolations": [
+                        {
+                            "constraintId": "e53f011903ad44f8b6541813093b5f39",
+                            "constraintName": "Unknown 3rd party component",
+                            "reasons": [
+                                {
+                                    "reason": "Match state was 'Unknown'",
+                                    "reference": null
+                                },
+                                {
+                                    "reason": "Component does not contain proprietary packages",
+                                    "reference": null
+                                }
+                            ]
+                        }
+                    ],
+                    "policyId": "1c0e53dd933747498dea26c4bab29bdd",
+                    "policyName": "Component-Unknown",
+                    "policyViolationId": "f7ae59c4cca24828a7fa4abf14a99e0f",
+                    "reportId": "0ae6618915834963931e1d08d1f3f86c",
+                    "reportUrl": "ui/links/application/GatekeeperPlugin/report/0ae6618915834963931e1d08d1f3f86c",
+                    "stageId": "release",
+                    "threatLevel": 2
+                }
+            ]
+        },
+        {
+            "application": {
+                "contactUserName": null,
+                "id": "d951a3478de148d5b417a3e8cd443ad3",
+                "name": "php-app",
+                "organizationId": "53a212ecf5db45ad9278667f0503b951",
+                "publicId": "php-app"
+            },
+            "policyViolations": [
+                {
+                    "component": {
+                        "componentIdentifier": null,
+                        "hash": "3dc83da7100b409abaa9",
+                        "packageUrl": null,
+                        "proprietary": false
+                    },
+                    "constraintViolations": [
+                        {
+                            "constraintId": "e53f011903ad44f8b6541813093b5f39",
+                            "constraintName": "Unknown 3rd party component",
+                            "reasons": [
+                                {
+                                    "reason": "Match state was 'Unknown'",
+                                    "reference": null
+                                },
+                                {
+                                    "reason": "Component does not contain proprietary packages",
+                                    "reference": null
+                                }
+                            ]
+                        }
+                    ],
+                    "policyId": "1c0e53dd933747498dea26c4bab29bdd",
+                    "policyName": "Component-Unknown",
+                    "policyViolationId": "ab7befec190f488c9f10d873ea9bd2a1",
+                    "reportId": "1bc608a0f9a740deb50bece4ab91e318",
+                    "reportUrl": "ui/links/application/php-app/report/1bc608a0f9a740deb50bece4ab91e318",
+                    "stageId": "build",
+                    "threatLevel": 2
+                },
+                {
+                    "component": {
+                        "componentIdentifier": null,
+                        "hash": "43dcc2344e0a7db8fad3",
+                        "packageUrl": null,
+                        "proprietary": false
+                    },
+                    "constraintViolations": [
+                        {
+                            "constraintId": "e53f011903ad44f8b6541813093b5f39",
+                            "constraintName": "Unknown 3rd party component",
+                            "reasons": [
+                                {
+                                    "reason": "Match state was 'Unknown'",
+                                    "reference": null
+                                },
+                                {
+                                    "reason": "Component does not contain proprietary packages",
+                                    "reference": null
+                                }
+                            ]
+                        }
+                    ],
+                    "policyId": "1c0e53dd933747498dea26c4bab29bdd",
+                    "policyName": "Component-Unknown",
+                    "policyViolationId": "a8a294c24a184daf9a4852bf3190fb48",
+                    "reportId": "1bc608a0f9a740deb50bece4ab91e318",
+                    "reportUrl": "ui/links/application/php-app/report/1bc608a0f9a740deb50bece4ab91e318",
+                    "stageId": "build",
+                    "threatLevel": 2
+                }
+            ]
+        },
+        {
+            "application": {
+                "contactUserName": null,
+                "id": "70de6339880643ba84eea46b626db550",
+                "name": "ui-app-scan",
+                "organizationId": "53a212ecf5db45ad9278667f0503b951",
+                "publicId": "ui-app-scan"
+            },
+            "policyViolations": [
+                {
+                    "component": {
+                        "componentIdentifier": null,
+                        "hash": "fd53a6bb2e43a2796da0",
+                        "packageUrl": null,
+                        "proprietary": false
+                    },
+                    "constraintViolations": [
+                        {
+                            "constraintId": "e53f011903ad44f8b6541813093b5f39",
+                            "constraintName": "Unknown 3rd party component",
+                            "reasons": [
+                                {
+                                    "reason": "Match state was 'Unknown'",
+                                    "reference": null
+                                },
+                                {
+                                    "reason": "Component does not contain proprietary packages",
+                                    "reference": null
+                                }
+                            ]
+                        }
+                    ],
+                    "policyId": "1c0e53dd933747498dea26c4bab29bdd",
+                    "policyName": "Component-Unknown",
+                    "policyViolationId": "90e6262b475b4a7e964a049cf6545092",
+                    "reportId": "461f7b911b684db8a0309540ce48503a",
+                    "reportUrl": "ui/links/application/ui-app-scan/report/461f7b911b684db8a0309540ce48503a",
+                    "stageId": "build",
+                    "threatLevel": 2
+                }
+            ]
+        },
+        {
+            "application": {
+                "contactUserName": null,
+                "id": "f94f0d15c6b242fbac2e8b2989b43764",
+                "name": "webgoat",
+                "organizationId": "53a212ecf5db45ad9278667f0503b951",
+                "publicId": "webgoat"
+            },
+            "policyViolations": [
+                {
+                    "component": {
+                        "componentIdentifier": null,
+                        "hash": "fd53a6bb2e43a2796da0",
+                        "packageUrl": null,
+                        "proprietary": false
+                    },
+                    "constraintViolations": [
+                        {
+                            "constraintId": "e53f011903ad44f8b6541813093b5f39",
+                            "constraintName": "Unknown 3rd party component",
+                            "reasons": [
+                                {
+                                    "reason": "Match state was 'Unknown'",
+                                    "reference": null
+                                },
+                                {
+                                    "reason": "Component does not contain proprietary packages",
+                                    "reference": null
+                                }
+                            ]
+                        }
+                    ],
+                    "policyId": "1c0e53dd933747498dea26c4bab29bdd",
+                    "policyName": "Component-Unknown",
+                    "policyViolationId": "924d08312b5a4fff8d4d812bb5c35180",
+                    "reportId": "0bcbd84b819448d891353bae331bd9cb",
+                    "reportUrl": "ui/links/application/webgoat/report/0bcbd84b819448d891353bae331bd9cb",
+                    "stageId": "build",
+                    "threatLevel": 2
+                }
+            ]
+        },
+        {
+            "application": {
+                "contactUserName": null,
+                "id": "b47a2533598f48d892348f56284d1192",
+                "name": "webgoat-legacy-ci",
+                "organizationId": "53a212ecf5db45ad9278667f0503b951",
+                "publicId": "webgoat-legacy-ci"
+            },
+            "policyViolations": [
+                {
+                    "component": {
+                        "componentIdentifier": null,
+                        "hash": "130a040259b5a4218fe5",
+                        "packageUrl": null,
+                        "proprietary": false
+                    },
+                    "constraintViolations": [
+                        {
+                            "constraintId": "e53f011903ad44f8b6541813093b5f39",
+                            "constraintName": "Unknown 3rd party component",
+                            "reasons": [
+                                {
+                                    "reason": "Match state was 'Unknown'",
+                                    "reference": null
+                                },
+                                {
+                                    "reason": "Component does not contain proprietary packages",
+                                    "reference": null
+                                }
+                            ]
+                        }
+                    ],
+                    "policyId": "1c0e53dd933747498dea26c4bab29bdd",
+                    "policyName": "Component-Unknown",
+                    "policyViolationId": "fcfb7d4e3bd84405b383e1e75c11ec4a",
+                    "reportId": "113676a1f17f442faa95f6f6a1e06baf",
+                    "reportUrl": "ui/links/application/webgoat-legacy-ci/report/113676a1f17f442faa95f6f6a1e06baf",
+                    "stageId": "build",
+                    "threatLevel": 2
+                }
+            ]
+        }
+    ]
+}

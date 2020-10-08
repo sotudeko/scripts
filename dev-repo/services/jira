@@ -1,0 +1,40 @@
+#!/bin/sh
+
+JIRA_VERSION=8.8.1
+JIRA_INSTALL=/opt/atlassian-jira-software-${JIRA_VERSION}-standalone
+
+do_start()
+{
+    cd $JIRA_INSTALL
+    ./bin/start-jira.sh
+    echo "Starting JIRA on port 9080"
+}
+
+do_console()
+{
+    cd $JIRA_INSTALL
+}
+
+do_stop()
+{
+    pid=`ps aux | grep jira | grep -vE '(stop|grep)' | awk '{print $2}'`
+    kill $pid
+    echo "Killed JIRA - PID $pid"
+}
+
+do_usage()
+{
+    echo "Usage: JIRA [console|start|stop]"
+}
+
+case $1 in
+console) do_console
+;;
+start) do_start
+;;
+stop) do_stop
+;;
+*) do_usage
+;;
+esac
+

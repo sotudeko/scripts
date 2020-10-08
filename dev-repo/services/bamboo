@@ -1,0 +1,41 @@
+#!/bin/sh
+
+BAMBOO_HOME=/opt/atlassian-bamboo-7.0.4
+JAVA_OPTIONS="-Xmx1024m -XX:MaxPermSize=128m"
+RUN_AS_USER=sotudeko
+
+do_start()
+{
+    cd $BAMBOO_HOME
+    ./bin/start-bamboo.sh
+    echo "Starting bamboo on port 8085"
+}
+
+do_console()
+{
+    cd $BAMBOO_HOME
+}
+
+do_stop()
+{
+    pid=`ps aux | grep bamboo | grep -vE '(stop|grep)' | awk '{print $2}'`
+    kill $pid
+    echo "Killed bamboo - PID $pid"
+}
+
+do_usage()
+{
+    echo "Usage: bamboo [console|start|stop]"
+}
+
+case $1 in
+console) do_console
+;;
+start) do_start
+;;
+stop) do_stop
+;;
+*) do_usage
+;;
+esac
+

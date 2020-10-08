@@ -1,0 +1,212 @@
+{
+    "applicationWaivers": [
+        {
+            "application": {
+                "contactUserName": null,
+                "id": "f875e2d2e83c41f3929f35e053a23e56",
+                "name": "webwolf-8.0.0.M26.jar",
+                "organizationId": "53a212ecf5db45ad9278667f0503b951",
+                "publicId": "webwolf-8.0.0.M26.jar"
+            },
+            "stages": [
+                {
+                    "componentPolicyViolations": [
+                        {
+                            "component": {
+                                "componentIdentifier": {
+                                    "coordinates": {
+                                        "artifactId": "guava",
+                                        "classifier": "",
+                                        "extension": "jar",
+                                        "groupId": "com.google.guava",
+                                        "version": "18.0"
+                                    },
+                                    "format": "maven"
+                                },
+                                "hash": "cce0823396aa693798f8",
+                                "packageUrl": "pkg:maven/com.google.guava/guava@18.0?type=jar"
+                            },
+                            "waivedPolicyViolations": [
+                                {
+                                    "constraintViolations": [
+                                        {
+                                            "constraintId": "088f3b1ae2cc4f9d9b462abf4afd4647",
+                                            "constraintName": "Medium risk CVSS score",
+                                            "reasons": [
+                                                {
+                                                    "reason": "Found security vulnerability CVE-2018-10237 with severity >= 4 (severity = 5.9)",
+                                                    "reference": {
+                                                        "type": "SECURITY_VULNERABILITY_REFID",
+                                                        "value": "CVE-2018-10237"
+                                                    }
+                                                },
+                                                {
+                                                    "reason": "Found security vulnerability CVE-2018-10237 with severity < 7 (severity = 5.9)",
+                                                    "reference": {
+                                                        "type": "SECURITY_VULNERABILITY_REFID",
+                                                        "value": "CVE-2018-10237"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "policyId": "6d4d2d64f6b840358d0bcc9b989ecadc",
+                                    "policyName": "Security-Medium",
+                                    "policyViolationId": "eb25365f19334f58a1c435f38aeeba4c",
+                                    "policyWaiver": {
+                                        "comment": "Related policy waiver not found. Please re-evaluate.",
+                                        "isObsolete": true
+                                    },
+                                    "threatLevel": 7
+                                }
+                            ]
+                        },
+                        {
+                            "component": {
+                                "componentIdentifier": {
+                                    "coordinates": {
+                                        "name": "fsa-style",
+                                        "qualifier": "",
+                                        "version": "2.0.1"
+                                    },
+                                    "format": "a-name"
+                                },
+                                "hash": "47b7300c17ef8ededf0b",
+                                "packageUrl": "pkg:a-name/fsa-style@2.0.1"
+                            },
+                            "waivedPolicyViolations": [
+                                {
+                                    "constraintViolations": [
+                                        {
+                                            "constraintId": "f6ab748175f6420cb2082fc412fe4f42",
+                                            "constraintName": "Critical risk CVSS score",
+                                            "reasons": [
+                                                {
+                                                    "reason": "Found security vulnerability sonatype-2019-0115 with severity >= 9 (severity = 9.8)",
+                                                    "reference": {
+                                                        "type": "SECURITY_VULNERABILITY_REFID",
+                                                        "value": "sonatype-2019-0115"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "policyId": "6d29a8229a4e484e94d37cb44fa347bf",
+                                    "policyName": "Security-Critical",
+                                    "policyViolationId": "235ca52d320c44f08f5ee1903d5e893e",
+                                    "policyWaiver": {
+                                        "comment": "Related policy waiver not found. Please re-evaluate.",
+                                        "isObsolete": true
+                                    },
+                                    "threatLevel": 10
+                                }
+                            ]
+                        },
+                        {
+                            "component": {
+                                "componentIdentifier": {
+                                    "coordinates": {
+                                        "artifactId": "dom4j",
+                                        "classifier": "",
+                                        "extension": "jar",
+                                        "groupId": "org.dom4j",
+                                        "version": "2.1.1"
+                                    },
+                                    "format": "maven"
+                                },
+                                "hash": "3dce5dbb3571aa820c67",
+                                "packageUrl": "pkg:maven/org.dom4j/dom4j@2.1.1?type=jar"
+                            },
+                            "waivedPolicyViolations": [
+                                {
+                                    "constraintViolations": [
+                                        {
+                                            "constraintId": "dbade3dc668d427a827ef7a05568d6d2",
+                                            "constraintName": "High risk CVSS score",
+                                            "reasons": [
+                                                {
+                                                    "reason": "Found security vulnerability CVE-2020-10683 with severity >= 7 (severity = 7.6)",
+                                                    "reference": {
+                                                        "type": "SECURITY_VULNERABILITY_REFID",
+                                                        "value": "CVE-2020-10683"
+                                                    }
+                                                },
+                                                {
+                                                    "reason": "Found security vulnerability CVE-2020-10683 with severity < 9 (severity = 7.6)",
+                                                    "reference": {
+                                                        "type": "SECURITY_VULNERABILITY_REFID",
+                                                        "value": "CVE-2020-10683"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "policyId": "4c3e614a111a48d3a4f6420b98311cb6",
+                                    "policyName": "Security-High",
+                                    "policyViolationId": "d0d4ba85335f4703b14860c4d9e5f699",
+                                    "policyWaiver": {
+                                        "comment": "Related policy waiver not found. Please re-evaluate.",
+                                        "isObsolete": true
+                                    },
+                                    "threatLevel": 9
+                                }
+                            ]
+                        },
+                        {
+                            "component": {
+                                "componentIdentifier": {
+                                    "coordinates": {
+                                        "artifactId": "postgresql",
+                                        "classifier": "",
+                                        "extension": "jar",
+                                        "groupId": "org.postgresql",
+                                        "version": "42.2.2"
+                                    },
+                                    "format": "maven"
+                                },
+                                "hash": "7ebd60d15eec1f9e796d",
+                                "packageUrl": "pkg:maven/org.postgresql/postgresql@42.2.2?type=jar"
+                            },
+                            "waivedPolicyViolations": [
+                                {
+                                    "constraintViolations": [
+                                        {
+                                            "constraintId": "dbade3dc668d427a827ef7a05568d6d2",
+                                            "constraintName": "High risk CVSS score",
+                                            "reasons": [
+                                                {
+                                                    "reason": "Found security vulnerability CVE-2018-10936 with severity >= 7 (severity = 8.1)",
+                                                    "reference": {
+                                                        "type": "SECURITY_VULNERABILITY_REFID",
+                                                        "value": "CVE-2018-10936"
+                                                    }
+                                                },
+                                                {
+                                                    "reason": "Found security vulnerability CVE-2018-10936 with severity < 9 (severity = 8.1)",
+                                                    "reference": {
+                                                        "type": "SECURITY_VULNERABILITY_REFID",
+                                                        "value": "CVE-2018-10936"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "policyId": "4c3e614a111a48d3a4f6420b98311cb6",
+                                    "policyName": "Security-High",
+                                    "policyViolationId": "0850b076a03e41769506699c166c60a7",
+                                    "policyWaiver": {
+                                        "comment": "Related policy waiver not found. Please re-evaluate.",
+                                        "isObsolete": true
+                                    },
+                                    "threatLevel": 9
+                                }
+                            ]
+                        }
+                    ],
+                    "stageId": "build"
+                }
+            ]
+        }
+    ],
+    "repositoryWaivers": []
+}

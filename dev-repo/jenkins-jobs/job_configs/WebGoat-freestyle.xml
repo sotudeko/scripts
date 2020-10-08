@@ -1,0 +1,63 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.8.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/WebGoat/WebGoat-Legacy.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Maven>
+      <targets>clean package</targets>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
+    <org.sonatype.nexus.ci.iq.IqPolicyEvaluatorBuildStep plugin="nexus-jenkins-plugin@3.5.20190425-152158.c63841b">
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqStage>build</com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqStage>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqApplication class="org.sonatype.nexus.ci.iq.SelectedApplication">
+        <applicationId>webgoat</applicationId>
+      </com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqApplication>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____failBuildOnNetworkError>false</com__sonatype__nexus__ci__iq__IqPolicyEvaluator____failBuildOnNetworkError>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____jobCredentialsId></com__sonatype__nexus__ci__iq__IqPolicyEvaluator____jobCredentialsId>
+      <advancedProperties></advancedProperties>
+    </org.sonatype.nexus.ci.iq.IqPolicyEvaluatorBuildStep>
+    <org.sonatype.nexus.ci.nxrm.v3.CreateTagStep plugin="nexus-jenkins-plugin@3.5.20190425-152158.c63841b">
+      <nexusInstanceId>nxrm3</nexusInstanceId>
+      <tagName>R1</tagName>
+    </org.sonatype.nexus.ci.nxrm.v3.CreateTagStep>
+    <org.sonatype.nexus.ci.nxrm.v3.AssociateTagStep plugin="nexus-jenkins-plugin@3.5.20190425-152158.c63841b">
+      <nexusInstanceId>nxrm3</nexusInstanceId>
+      <tagName>R1</tagName>
+      <search>
+        <org.sonatype.nexus.ci.nxrm.v3.SearchParameter>
+          <key>key</key>
+          <value>value</value>
+        </org.sonatype.nexus.ci.nxrm.v3.SearchParameter>
+      </search>
+    </org.sonatype.nexus.ci.nxrm.v3.AssociateTagStep>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

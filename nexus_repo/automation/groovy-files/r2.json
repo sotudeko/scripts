@@ -1,0 +1,7 @@
+{
+  "name": "mavenhosted",
+  "type": "groovy",
+  "content": "
+repository.createMavenHosted(args.name, args.blobstore, true, 'Snapshot', '', 'Strict')
+"
+}

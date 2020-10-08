@@ -1,0 +1,53 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>cat &gt; Dockerfile &lt;&lt;&apos;EOL&apos;
+FROM alpine:3.3</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>TAG=$(date &quot;+%H%M%S%d%m%Y&quot;)
+IMAGENAME=sola.local:18082/my-alpine
+docker build -t $IMAGENAME:$TAG .
+docker push $IMAGENAME:$TAG
+ 
+# Line added to create anchore_images file
+echo &quot;$IMAGENAME:$TAG ${WORKSPACE}/Dockerfile &quot; &gt; anchore_images
+</command>
+    </hudson.tasks.Shell>
+    <com.anchore.jenkins.plugins.anchore.AnchoreBuilder plugin="anchore-container-scanner@1.0.18">
+      <name>anchore_images</name>
+      <policyName>anchore_policy</policyName>
+      <globalWhiteList>anchore_global_whitelist</globalWhiteList>
+      <anchoreioUser></anchoreioUser>
+      <anchoreioPass></anchoreioPass>
+      <userScripts>anchore_user_scripts</userScripts>
+      <engineRetries>300</engineRetries>
+      <bailOnFail>true</bailOnFail>
+      <bailOnWarn>false</bailOnWarn>
+      <bailOnPluginFail>true</bailOnPluginFail>
+      <doCleanup>false</doCleanup>
+      <useCachedBundle>true</useCachedBundle>
+      <policyEvalMethod>plainfile</policyEvalMethod>
+      <bundleFileOverride>anchore_policy_bundle.json</bundleFileOverride>
+      <policyBundleId></policyBundleId>
+      <engineurl></engineurl>
+      <engineCredentialsId></engineCredentialsId>
+      <engineverify>false</engineverify>
+      <isEngineverifyOverrride>true</isEngineverifyOverrride>
+    </com.anchore.jenkins.plugins.anchore.AnchoreBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

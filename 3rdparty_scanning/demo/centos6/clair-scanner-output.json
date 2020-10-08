@@ -1,0 +1,150 @@
+{
+    "image": "sola.local:8882/centos:6",
+    "unapproved": [
+        "RHSA-2019:1492",
+        "RHSA-2019:1467",
+        "RHSA-2018:2898",
+        "RHSA-2019:1492",
+        "RHSA-2019:2471",
+        "RHSA-2019:1774",
+        "RHSA-2019:1652",
+        "RHSA-2019:4152",
+        "RHSA-2019:4152",
+        "RHSA-2018:2898",
+        "RHSA-2019:1467",
+        "RHSA-2018:2898",
+        "RHSA-2019:1726"
+    ],
+    "vulnerabilities": [
+        {
+            "featurename": "nss-softokn-freebl",
+            "featureversion": "3.14.3-23.3.el6_8",
+            "vulnerability": "RHSA-2019:4152",
+            "namespace": "centos:6",
+            "description": "The nss-softokn package provides the Network Security Services Softoken Cryptographic Module. Security Fix(es): * nss: Out-of-bounds write when passing an output buffer smaller than the block size to NSC_EncryptUpdate (CVE-2019-11745) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:4152",
+            "severity": "High",
+            "fixedby": "0:3.44.0-6.el6_10"
+        },
+        {
+            "featurename": "python",
+            "featureversion": "2.6.6-66.el6_8",
+            "vulnerability": "RHSA-2019:1467",
+            "namespace": "centos:6",
+            "description": "Python is an interpreted, interactive, object-oriented programming language, which includes modules, classes, exceptions, very high level dynamic data types and dynamic typing. Python supports interfaces to many system calls and libraries, as well as to various windowing systems. Security Fix(es): * python: Information Disclosure due to urlsplit improper NFKC normalization (CVE-2019-9636) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:1467",
+            "severity": "High",
+            "fixedby": "0:2.6.6-68.el6_10"
+        },
+        {
+            "featurename": "python-libs",
+            "featureversion": "2.6.6-66.el6_8",
+            "vulnerability": "RHSA-2019:1467",
+            "namespace": "centos:6",
+            "description": "Python is an interpreted, interactive, object-oriented programming language, which includes modules, classes, exceptions, very high level dynamic data types and dynamic typing. Python supports interfaces to many system calls and libraries, as well as to various windowing systems. Security Fix(es): * python: Information Disclosure due to urlsplit improper NFKC normalization (CVE-2019-9636) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:1467",
+            "severity": "High",
+            "fixedby": "0:2.6.6-68.el6_10"
+        },
+        {
+            "featurename": "bind-libs",
+            "featureversion": "32:9.8.2-0.68.rc1.el6_10.1",
+            "vulnerability": "RHSA-2019:1492",
+            "namespace": "centos:6",
+            "description": "The Berkeley Internet Name Domain (BIND) is an implementation of the Domain Name System (DNS) protocols. BIND includes a DNS server (named); a resolver library (routines for applications to use when interfacing with DNS); and tools for verifying that the DNS server is operating correctly. Security Fix(es): * bind: Limiting simultaneous TCP clients is ineffective (CVE-2018-5743) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:1492",
+            "severity": "High",
+            "fixedby": "32:9.8.2-0.68.rc1.el6_10.3"
+        },
+        {
+            "featurename": "nss-softokn",
+            "featureversion": "3.14.3-23.3.el6_8",
+            "vulnerability": "RHSA-2019:4152",
+            "namespace": "centos:6",
+            "description": "The nss-softokn package provides the Network Security Services Softoken Cryptographic Module. Security Fix(es): * nss: Out-of-bounds write when passing an output buffer smaller than the block size to NSC_EncryptUpdate (CVE-2019-11745) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:4152",
+            "severity": "High",
+            "fixedby": "0:3.44.0-6.el6_10"
+        },
+        {
+            "featurename": "vim-minimal",
+            "featureversion": "2:7.4.629-5.el6_8.1",
+            "vulnerability": "RHSA-2019:1774",
+            "namespace": "centos:6",
+            "description": "Vim (Vi IMproved) is an updated and improved version of the vi editor. Security Fix(es): * vim/neovim: ':source!' command allows arbitrary command execution via modelines (CVE-2019-12735) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:1774",
+            "severity": "High",
+            "fixedby": "2:7.4.629-5.el6_10.2"
+        },
+        {
+            "featurename": "libssh2",
+            "featureversion": "1.4.2-2.el6_7.1",
+            "vulnerability": "RHSA-2019:1652",
+            "namespace": "centos:6",
+            "description": "The libssh2 packages provide a library that implements the SSH2 protocol. Security Fix(es): * libssh2: Integer overflow in transport read resulting in out of bounds write (CVE-2019-3855) * libssh2: Integer overflow in keyboard interactive handling resulting in out of bounds write (CVE-2019-3856) * libssh2: Integer overflow in SSH packet processing channel resulting in out of bounds write (CVE-2019-3857) * libssh2: Integer overflow in user authenticate keyboard interactive allows out-of-bounds writes (CVE-2019-3863) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:1652",
+            "severity": "High",
+            "fixedby": "0:1.4.2-3.el6_10.1"
+        },
+        {
+            "featurename": "bind-utils",
+            "featureversion": "32:9.8.2-0.68.rc1.el6_10.1",
+            "vulnerability": "RHSA-2019:1492",
+            "namespace": "centos:6",
+            "description": "The Berkeley Internet Name Domain (BIND) is an implementation of the Domain Name System (DNS) protocols. BIND includes a DNS server (named); a resolver library (routines for applications to use when interfacing with DNS); and tools for verifying that the DNS server is operating correctly. Security Fix(es): * bind: Limiting simultaneous TCP clients is ineffective (CVE-2018-5743) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:1492",
+            "severity": "High",
+            "fixedby": "32:9.8.2-0.68.rc1.el6_10.3"
+        },
+        {
+            "featurename": "dbus-libs",
+            "featureversion": "1:1.2.24-9.el6",
+            "vulnerability": "RHSA-2019:1726",
+            "namespace": "centos:6",
+            "description": "D-Bus is a system for sending messages between applications. It is used both for the system-wide message bus service, and as a per-user-login-session messaging facility. Security Fix(es): * dbus: DBusServer DBUS_COOKIE_SHA1 authentication bypass (CVE-2019-12749) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:1726",
+            "severity": "High",
+            "fixedby": "1:1.2.24-11.el6_10"
+        },
+        {
+            "featurename": "openssl",
+            "featureversion": "1.0.1e-57.el6",
+            "vulnerability": "RHSA-2019:2471",
+            "namespace": "centos:6",
+            "description": "OpenSSL is a toolkit that implements the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols, as well as a full-strength general-purpose cryptography library. Security Fix(es): * openssl: 0-byte record padding oracle (CVE-2019-1559) For more details about the security issue(s), including the impact, a CVSS score, acknowledgments, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:2471",
+            "severity": "Medium",
+            "fixedby": "0:1.0.1e-58.el6_10"
+        },
+        {
+            "featurename": "nss-tools",
+            "featureversion": "3.36.0-8.el6",
+            "vulnerability": "RHSA-2018:2898",
+            "namespace": "centos:6",
+            "description": "Network Security Services (NSS) is a set of libraries designed to support the cross-platform development of security-enabled client and server applications. Security Fix(es): * nss: ServerHello.random is all zeros when handling a v2-compatible ClientHello (CVE-2018-12384) For more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section. Red Hat would like to thank the Mozilla project for reporting this issue.",
+            "link": "https://access.redhat.com/errata/RHSA-2018:2898",
+            "severity": "Medium",
+            "fixedby": "0:3.36.0-9.el6_10"
+        },
+        {
+            "featurename": "nss",
+            "featureversion": "3.36.0-8.el6",
+            "vulnerability": "RHSA-2018:2898",
+            "namespace": "centos:6",
+            "description": "Network Security Services (NSS) is a set of libraries designed to support the cross-platform development of security-enabled client and server applications. Security Fix(es): * nss: ServerHello.random is all zeros when handling a v2-compatible ClientHello (CVE-2018-12384) For more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section. Red Hat would like to thank the Mozilla project for reporting this issue.",
+            "link": "https://access.redhat.com/errata/RHSA-2018:2898",
+            "severity": "Medium",
+            "fixedby": "0:3.36.0-9.el6_10"
+        },
+        {
+            "featurename": "nss-sysinit",
+            "featureversion": "3.36.0-8.el6",
+            "vulnerability": "RHSA-2018:2898",
+            "namespace": "centos:6",
+            "description": "Network Security Services (NSS) is a set of libraries designed to support the cross-platform development of security-enabled client and server applications. Security Fix(es): * nss: ServerHello.random is all zeros when handling a v2-compatible ClientHello (CVE-2018-12384) For more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section. Red Hat would like to thank the Mozilla project for reporting this issue.",
+            "link": "https://access.redhat.com/errata/RHSA-2018:2898",
+            "severity": "Medium",
+            "fixedby": "0:3.36.0-9.el6_10"
+        }
+    ]
+}

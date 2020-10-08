@@ -1,0 +1,14 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: nxrm3-volume
+  labels:
+    type: local
+spec:
+  storageClassName: nxrm3
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/nxrm3/sonatype-work"

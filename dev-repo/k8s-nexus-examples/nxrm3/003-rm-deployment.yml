@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nxrm3-deployment
+  labels:
+    app: nxrm3
+spec:
+  template:
+    metadata:
+      name: nxrm3-pod
+      labels:
+        app: nxrm3
+    spec:
+      volumes:
+          - name: nxrm3-storage
+            persistentVolumeClaim:
+              claimName: nxrm3-claim
+      containers:
+        - name: nxrm3-container
+          image: sonatype/nexus3
+          ports:
+            - containerPort: 8081
+              name: "nxrm3"
+          volumeMounts:
+            - mountPath: "/nexus-data"
+              name: nxrm3-storage
+      initContainers:
+        - name: nxrm3-init-container
+          image: busybox
+          volumeMounts:
+            - mountPath: "/nexus-data"
+              name: nxrm3-storage
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nxrm3
+
+
+
+
+    

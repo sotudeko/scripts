@@ -1,0 +1,68 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.12.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/bkimminich/juice-shop.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &apos;Hello from demo-freestyle&apos;
+pwd
+ls
+npm install
+ls
+zip -r -o juice-shop.zip ./node_modules
+
+</command>
+    </hudson.tasks.Shell>
+    <jenkins.plugins.nodejs.NodeJSCommandInterpreter plugin="nodejs@1.3.4">
+      <command>console.log(&apos;build number: &apos; + process.env[&apos;BUILD_NUMBER&apos;]);
+console.log(&apos;workspace: &apos; + process.env[&apos;WORKSPACE&apos;]);
+</command>
+      <cacheLocationStrategy class="jenkins.plugins.nodejs.cache.DefaultCacheLocationLocator"/>
+    </jenkins.plugins.nodejs.NodeJSCommandInterpreter>
+    <org.sonatype.nexus.ci.iq.IqPolicyEvaluatorBuildStep plugin="nexus-jenkins-plugin@3.7.20190823-091836.9f85050">
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqStage>build</com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqStage>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqApplication class="org.sonatype.nexus.ci.iq.ManualApplication">
+        <applicationId>juice-shop</applicationId>
+      </com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqApplication>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqScanPatterns>
+        <org.sonatype.nexus.ci.iq.ScanPattern>
+          <scanPattern>node_modules</scanPattern>
+        </org.sonatype.nexus.ci.iq.ScanPattern>
+      </com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqScanPatterns>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____failBuildOnNetworkError>false</com__sonatype__nexus__ci__iq__IqPolicyEvaluator____failBuildOnNetworkError>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____jobCredentialsId></com__sonatype__nexus__ci__iq__IqPolicyEvaluator____jobCredentialsId>
+      <advancedProperties></advancedProperties>
+    </org.sonatype.nexus.ci.iq.IqPolicyEvaluatorBuildStep>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <jenkins.plugins.nodejs.NodeJSBuildWrapper plugin="nodejs@1.3.4">
+      <nodeJSInstallationName>NodeJS</nodeJSInstallationName>
+      <cacheLocationStrategy class="jenkins.plugins.nodejs.cache.DefaultCacheLocationLocator"/>
+    </jenkins.plugins.nodejs.NodeJSBuildWrapper>
+  </buildWrappers>
+</project>

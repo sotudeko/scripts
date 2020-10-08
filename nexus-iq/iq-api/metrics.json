@@ -1,0 +1,1530 @@
+[
+    {
+        "aggregations": [
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "evaluationCount": 1,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "timePeriodStart": "2019-11-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            },
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "evaluationCount": 0,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "timePeriodStart": "2019-12-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            }
+        ],
+        "applicationId": "859107ac745f401a9a8c11505dac6044",
+        "applicationName": "webdvwa",
+        "applicationPublicId": "webdvwa",
+        "organizationId": "4f9b239c3e024d929c27e1faa51125b4",
+        "organizationName": "Auto"
+    },
+    {
+        "aggregations": [
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 320,
+                        "SEVERE": 0
+                    }
+                },
+                "evaluationCount": 3,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 320,
+                        "SEVERE": 0
+                    }
+                },
+                "timePeriodStart": "2019-11-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            },
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "evaluationCount": 0,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 320,
+                        "SEVERE": 0
+                    }
+                },
+                "timePeriodStart": "2019-12-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            }
+        ],
+        "applicationId": "9f00b95dd6c44fbf8cf7491b191c3e6f",
+        "applicationName": "webdvwa2",
+        "applicationPublicId": "webdvwa2",
+        "organizationId": "4f9b239c3e024d929c27e1faa51125b4",
+        "organizationName": "Auto"
+    },
+    {
+        "aggregations": [
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 1,
+                        "SEVERE": 1
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 48,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 18,
+                        "LOW": 0,
+                        "MODERATE": 1,
+                        "SEVERE": 31
+                    }
+                },
+                "evaluationCount": 2,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 1,
+                        "SEVERE": 1
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 48,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 18,
+                        "LOW": 0,
+                        "MODERATE": 1,
+                        "SEVERE": 31
+                    }
+                },
+                "timePeriodStart": "2019-12-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            }
+        ],
+        "applicationId": "81be6c52fee14d8ca74f6cefad0832bf",
+        "applicationName": "webwolf",
+        "applicationPublicId": "webwolf",
+        "organizationId": "4f9b239c3e024d929c27e1faa51125b4",
+        "organizationName": "Auto"
+    },
+    {
+        "aggregations": [
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 1,
+                        "MODERATE": 3,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 77,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 23,
+                        "LOW": 0,
+                        "MODERATE": 5,
+                        "SEVERE": 44
+                    }
+                },
+                "evaluationCount": 3,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 2,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": 124958,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 1,
+                        "MODERATE": 1,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 77,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 23,
+                        "LOW": 0,
+                        "MODERATE": 5,
+                        "SEVERE": 44
+                    }
+                },
+                "timePeriodStart": "2019-12-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            }
+        ],
+        "applicationId": "4a51f724bd854b379ec2fdf5e7f56106",
+        "applicationName": "webgoat2-cli",
+        "applicationPublicId": "webgoat2-cli",
+        "organizationId": "4f9b239c3e024d929c27e1faa51125b4",
+        "organizationName": "Auto"
+    },
+    {
+        "aggregations": [
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 1,
+                        "MODERATE": 7,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 77,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 23,
+                        "LOW": 0,
+                        "MODERATE": 5,
+                        "SEVERE": 44
+                    }
+                },
+                "evaluationCount": 7,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 6,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": 6258273,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 1,
+                        "MODERATE": 1,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 77,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 23,
+                        "LOW": 0,
+                        "MODERATE": 5,
+                        "SEVERE": 44
+                    }
+                },
+                "timePeriodStart": "2019-11-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            },
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "evaluationCount": 0,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 1,
+                        "MODERATE": 1,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 77,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 23,
+                        "LOW": 0,
+                        "MODERATE": 5,
+                        "SEVERE": 44
+                    }
+                },
+                "timePeriodStart": "2019-12-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            }
+        ],
+        "applicationId": "2446f75aefa144fd9c8ce670a77e3b32",
+        "applicationName": "webgoat-legacy-ci",
+        "applicationPublicId": "webgoat-legacy-ci",
+        "organizationId": "4f9b239c3e024d929c27e1faa51125b4",
+        "organizationName": "Auto"
+    },
+    {
+        "aggregations": [
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 1,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 25,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 2,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 5
+                    }
+                },
+                "evaluationCount": 1,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 1,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 25,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 2,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 5
+                    }
+                },
+                "timePeriodStart": "2019-11-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            },
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "evaluationCount": 0,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 1,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 25,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 2,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 5
+                    }
+                },
+                "timePeriodStart": "2019-12-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            }
+        ],
+        "applicationId": "2809e29fb6ed4f3ca1c122a2727f8555",
+        "applicationName": "webgoat-1.2.4",
+        "applicationPublicId": "webgoat-1.2.4",
+        "organizationId": "4f9b239c3e024d929c27e1faa51125b4",
+        "organizationName": "Auto"
+    },
+    {
+        "aggregations": [
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 1,
+                        "MODERATE": 1,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 77,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 23,
+                        "LOW": 0,
+                        "MODERATE": 5,
+                        "SEVERE": 44
+                    }
+                },
+                "evaluationCount": 1,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 1,
+                        "MODERATE": 1,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 77,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 23,
+                        "LOW": 0,
+                        "MODERATE": 5,
+                        "SEVERE": 44
+                    }
+                },
+                "timePeriodStart": "2019-12-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            }
+        ],
+        "applicationId": "242520f34a8e42e9845fe6d525c1cb44",
+        "applicationName": "webgoat2",
+        "applicationPublicId": "webgoat2",
+        "organizationId": "4f9b239c3e024d929c27e1faa51125b4",
+        "organizationName": "Auto"
+    },
+    {
+        "aggregations": [
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "evaluationCount": 2,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "timePeriodStart": "2019-11-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            },
+            {
+                "discoveredCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "evaluationCount": 0,
+                "fixedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "mttrCriticalThreat": null,
+                "mttrLowThreat": null,
+                "mttrModerateThreat": null,
+                "mttrSevereThreat": null,
+                "openCountsAtTimePeriodEnd": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                },
+                "timePeriodStart": "2019-12-01",
+                "waivedCounts": {
+                    "LICENSE": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "OTHER": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "QUALITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    },
+                    "SECURITY": {
+                        "CRITICAL": 0,
+                        "LOW": 0,
+                        "MODERATE": 0,
+                        "SEVERE": 0
+                    }
+                }
+            }
+        ],
+        "applicationId": "c9f7e63f65a345ddb82a836b6e6ad2d0",
+        "applicationName": "webgoat-clair",
+        "applicationPublicId": "webgoat-clair",
+        "organizationId": "4f9b239c3e024d929c27e1faa51125b4",
+        "organizationName": "Auto"
+    }
+]

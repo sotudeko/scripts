@@ -1,0 +1,11 @@
+#!/bin/bash
+
+app=$1
+sfile=$2
+
+user=admin
+passwd=admin123
+iqserver=http://localhost:8077
+
+java -jar /opt/nxiq75/nexus-iq-cli-1.75.0-01.jar -i ${app} -s ${iqserver} -a ${user}:${passwd} ${sfile} 
+

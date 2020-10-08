@@ -1,0 +1,9 @@
+{
+  "name": "maven-hosted",
+  "type": "groovy",
+  "content": "
+import groovy.json.JsonSlurper
+args2 = new JsonSlurper().parseText(args)
+repository.createMavenHosted(args2.name, args2.blobstore, true, 'Snapshot', '', 'Strict')
+"
+}

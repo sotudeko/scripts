@@ -1,0 +1,35 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <displayName>BrickHouse</displayName>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>/Users/sotudeko/Development/ec-workspace/brickhouse</customWorkspace>
+  <builders>
+    <hudson.tasks.Maven>
+      <targets>clean package</targets>
+      <usePrivateRepository>false</usePrivateRepository>
+      <settings class="jenkins.mvn.DefaultSettingsProvider"/>
+      <globalSettings class="jenkins.mvn.DefaultGlobalSettingsProvider"/>
+      <injectBuildVariables>false</injectBuildVariables>
+    </hudson.tasks.Maven>
+    <org.sonatype.nexus.ci.iq.IqPolicyEvaluatorBuildStep plugin="nexus-jenkins-plugin@3.0.20180425-130011.728733c">
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqStage>build</com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqStage>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqApplication class="org.sonatype.nexus.ci.iq.ManualApplication">
+        <applicationId>brickhouse-ci</applicationId>
+      </com__sonatype__nexus__ci__iq__IqPolicyEvaluator____iqApplication>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____failBuildOnNetworkError>false</com__sonatype__nexus__ci__iq__IqPolicyEvaluator____failBuildOnNetworkError>
+      <com__sonatype__nexus__ci__iq__IqPolicyEvaluator____jobCredentialsId></com__sonatype__nexus__ci__iq__IqPolicyEvaluator____jobCredentialsId>
+    </org.sonatype.nexus.ci.iq.IqPolicyEvaluatorBuildStep>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nxiq-deployment
+  labels:
+    app: nxiq
+spec:
+  template:
+    metadata:
+      name: nxiq-pod
+      labels:
+        app: nxiq
+    spec:
+      # securityContext:
+      #   runAsUser: 1000
+      #   runAsGroup: 3000
+      #   fsGroup: 200
+      #   runAsNonRoot: true
+      volumes:
+          - name: nxiq-storage
+            persistentVolumeClaim:
+              claimName: nxiq-claim
+      containers:
+        - name: nxiq-container
+          image: sonatype/nexus-iq-server
+          ports:
+            - containerPort: 8070
+              name: "nxiq-ui"
+            - containerPort: 8071
+              name: "nxiq-admin"
+          volumeMounts:
+            - mountPath: "/sonatype-work"
+              name: nxiq-storage
+      initContainers:
+        - name: nxiq-init-container
+          image: busybox
+          command: ["sh", "-c", "chmod -R 777 /mnt/nxiq"]
+          volumeMounts:
+            - mountPath: "/sonatype-work"
+              name: nxiq-storage
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nxiq
+
+
+
+
+    
