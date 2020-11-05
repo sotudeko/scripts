@@ -18,7 +18,7 @@ overRidesCsvFile = '{}/{}'.format(outputDir, 'overrides.csv')
 
 appReportsJsonFile = '{}/{}'.format(outputDir, 'appreports.json')
 appReportsUrlsCsvFile = '{}/{}'.format(outputDir, 'appreportsurls.csv')
-appSecurityIssuesCsvFile = '{}/{}'.format(outputDir, 'appsecurityissues.csv')
+appIssuesStatusCsvFile = '{}/{}'.format(outputDir, 'appissuesstatus.csv')
 appPolicyViolationsCsvFile = '{}/{}'.format(outputDir, 'apppolicyviolations.csv')
 
 #rawData = []
@@ -134,15 +134,15 @@ def writeAppReportUrlsCsvFile(applicationEvaluations):
 def writeAppReportDataCsvFile(applicationEvaluations):
 
     # Two sets of data to write
-    # 1. Policy Violations from the report
-    # 2. Component
+    # 1. Policy Violations from report
+    # 2. List of security issues and license status from report raw data
     
 	with open(appPolicyViolationsCsvFile, 'w') as fd:
 			fd.write('ApplicationName,Hash,PackageUrl,PolicyName,PolicyId,Waived\n')
 			fd.close()
 
-	with open(appSecurityIssuesCsvFile, 'w') as fd:
-			fd.write('ApplicationName,Hash,PackageUrl,Issues\n')
+	with open(appIssuesStatusCsvFile, 'w') as fd:
+			fd.write('ApplicationName,Hash,PackageUrl,Issues,LicenceStatus\n')
 			fd.close()
 
     # read the app report urls file
@@ -155,17 +155,17 @@ def writeAppReportDataCsvFile(applicationEvaluations):
                 # append the policy violations for this application report to the output csvfile
 				writeAppReportPolicyViolationsCsvFile(applicationName, url)
 
-                # append the security issues for the application report to the output csvfile
-				writeAppReportSecurityIssuesCsvFile(applicationName, url)
+                # append the security/license issues and status for the application report to the output csvfile
+				writeAppReportIssuesStatusCsvFile(applicationName, url)
 
 
-	print(appSecurityIssuesCsvFile)
+	print(appIssuesStatusCsvFile)
 	print(appPolicyViolationsCsvFile)
 
 	return
 
 
-def writeAppReportSecurityIssuesCsvFile(applicationName, url):
+def writeAppReportIssuesStatusCsvFile(applicationName, url):
 
     # get the report raw data
 	statusCode, rawData = getNexusIqData('/' + url)
@@ -177,16 +177,19 @@ def writeAppReportSecurityIssuesCsvFile(applicationName, url):
 	components = rawData["components"]
 
     # write the data
-	with open(appSecurityIssuesCsvFile, 'a') as fd:
+	with open(appIssuesStatusCsvFile, 'a') as fd:
 			for component in components:
 				hash = component["hash"]
 				packageUrl  = component["packageUrl"]
 
-				# licenseStatus = component["licenseData"]["status"]
+				licenseData = component["licenseData"]
+				if licenseData:
+					licenseStatus = licenseData["status"]
+				else:
+					licenseStatus = 'none'
 
 				if not packageUrl:
 					packageUrl = "none"
-
 
 				if type(component["securityData"]) is dict:
 					securityIssues = component["securityData"]["securityIssues"]
@@ -198,7 +201,7 @@ def writeAppReportSecurityIssuesCsvFile(applicationName, url):
 						issues = issues[:-1]
 
 						#if securityIssue["status"] != 'Open':
-						line = applicationName + "," + hash + "," + packageUrl + "," + issues + "\n"
+						line = applicationName + "," + hash + "," + packageUrl + "," + issues + "," + licenseStatus + "\n"
 						fd.write(line)
 				#else:
 					#line = applicationName + "," + hash + "," + packageUrl + "," + 'no security issues' + "\n"
