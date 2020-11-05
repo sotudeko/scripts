@@ -21,6 +21,10 @@ appReportsUrlsCsvFile = '{}/{}'.format(outputDir, 'appreportsurls.csv')
 appSecurityIssuesCsvFile = '{}/{}'.format(outputDir, 'appsecurityissues.csv')
 appPolicyViolationsCsvFile = '{}/{}'.format(outputDir, 'apppolicyviolations.csv')
 
+#rawData = []
+policyViolations = []
+
+
 if len(sys.argv) > 4:
 	generateData = False
 
@@ -246,6 +250,41 @@ def writeAppReportPolicyViolationsCsvFile(applicationName, url):
 
 
 
+def loadPolicyViolationsByReport():
+	with open(appPolicyViolationsCsvFile, 'r') as fd:
+		for line in fd.readlines():
+				policyViolations.append(line)
+
+	return
+
+
+def componentMapper():
+	with open(overRidesCsvFile) as csvfile:
+			r = csv.reader(csvfile, delimiter=',')
+			lineCount = 0
+			for row in r:
+				if lineCount == 0:
+					lineCount += 1
+				else:
+					lineCount += 1
+					line = '{}:{}:{}:{}'.format(row[0], row[1], row[2], row[3])
+					print (line)
+
+					findHash(row[0])
+
+	return
+
+
+def findHash(hash):
+	for i in policyViolations:
+		i = i[:-1]
+
+		if hash in i:
+			print('  ' + i)
+
+	return
+
+
 def main():
 
     if generateData:
@@ -258,7 +297,9 @@ def main():
         if not getApplicationEvaluationReports() == 200:
             sys.exit(-1)
 
-
+    # analyse
+    loadPolicyViolationsByReport()
+    componentMapper()
 
 
 if __name__ == '__main__':
