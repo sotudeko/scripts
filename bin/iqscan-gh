@@ -1,0 +1,22 @@
+#!/bin/bash
+
+app=$1
+sfile=$2
+
+if [ $# -eq 3 ]; then
+	if [ "$3" == "stage" ]; then
+		stage="stage-release"
+	else
+  	stage=${3}
+	fi
+else
+  stage=build
+fi
+
+user=admin
+passwd=admin123
+iqserver=http://localhost:8890
+
+echo java -jar /opt/nxiq/nexus-iq-cli -i ${app} -s ${iqserver} -a ${user}:${passwd} -t ${stage} ${sfile} 
+java -jar /opt/nxiq/nexus-iq-cli -i ${app} -s ${iqserver} -a ${user}:${passwd} -t ${stage} ${sfile} 
+

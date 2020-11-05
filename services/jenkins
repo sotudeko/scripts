@@ -1,20 +1,21 @@
 #!/bin/sh
 
-JENKINS_HOME=/opt/.delete_all/jenkins
+JENKINS_HOME=/opt/jenkins
+JENKINS_VERSION=2.253
 JAVA_OPTIONS="-Xmx1024m -XX:MaxPermSize=128m"
 RUN_AS_USER=sotudeko
 
 do_start()
 {
     cd $JENKINS_HOME
-    java -jar ${JENKINS_HOME}/jenkins.war > /dev/null 2>&1 &
+    java -jar ${JENKINS_HOME}/jenkins-${JENKINS_VERSION}.war > /dev/null 2>&1 &
     echo "Starting jenkins"
 }
 
 do_console()
 {
     cd $JENKINS_HOME
-    java -jar ${JENKINS_HOME}/jenkins.war
+    java -jar ${JENKINS_HOME}/jenkins-${JENKINS_VERSION}.war
 }
 
 do_stop()
