@@ -136,8 +136,6 @@ def writeAppReportDataCsvFile(applicationEvaluations):
     # Two sets of data to write
     # 1. Policy Violations from the report
     # 2. Component
-
-	print('  ...reading application reports')
     
 	with open(appPolicyViolationsCsvFile, 'w') as fd:
 			fd.write('ApplicationName,Hash,PackageUrl,PolicyName,PolicyId,Waived\n')
@@ -184,8 +182,11 @@ def writeAppReportSecurityIssuesCsvFile(applicationName, url):
 				hash = component["hash"]
 				packageUrl  = component["packageUrl"]
 
+				# licenseStatus = component["licenseData"]["status"]
+
 				if not packageUrl:
 					packageUrl = "none"
+
 
 				if type(component["securityData"]) is dict:
 					securityIssues = component["securityData"]["securityIssues"]
@@ -196,11 +197,11 @@ def writeAppReportSecurityIssuesCsvFile(applicationName, url):
 							issues += securityIssue["reference"] + ":" + securityIssue["status"] + ";"
 						issues = issues[:-1]
 
-						if securityIssue["status"] != 'Open':
-							line = applicationName + "," + hash + "," + packageUrl + "," + issues + "\n"
-							fd.write(line)
-				else:
-					line = applicationName + "," + hash + "," + packageUrl + "," + 'no security issues' + "\n"
+						#if securityIssue["status"] != 'Open':
+						line = applicationName + "," + hash + "," + packageUrl + "," + issues + "\n"
+						fd.write(line)
+				#else:
+					#line = applicationName + "," + hash + "," + packageUrl + "," + 'no security issues' + "\n"
 					#fd.write(line)
 
 
