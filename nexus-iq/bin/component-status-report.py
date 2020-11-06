@@ -21,8 +21,7 @@ appReportsUrlsCsvFile = '{}/{}'.format(outputDir, 'appreportsurls.csv')
 appIssuesStatusCsvFile = '{}/{}'.format(outputDir, 'appissuesstatus.csv')
 appPolicyViolationsCsvFile = '{}/{}'.format(outputDir, 'apppolicyviolations.csv')
 
-#rawData = []
-policyViolations = []
+policyViolationsDb = []
 
 
 if len(sys.argv) > 4:
@@ -104,9 +103,6 @@ def getApplicationEvaluationReports():
 
         # Get the Url of each report and write to CSV file
         writeAppReportUrlsCsvFile(data)
-
-        # Extract relevant application report data and write to CSV files
-        writeAppReportDataCsvFile(data)
     else:
         print(str(statusCode) + ': ' + data + ' - Application Reports')
 
@@ -131,18 +127,9 @@ def writeAppReportUrlsCsvFile(applicationEvaluations):
 	return
 
 
-def writeAppReportDataCsvFile(applicationEvaluations):
-
-    # Two sets of data to write
-    # 1. Policy Violations from report
-    # 2. List of security issues and license status from report raw data
-    
+def writePolicyViolationsCsvFile():
 	with open(appPolicyViolationsCsvFile, 'w') as fd:
 			fd.write('ApplicationName,Hash,PackageUrl,PolicyName,PolicyId,Waived\n')
-			fd.close()
-
-	with open(appIssuesStatusCsvFile, 'w') as fd:
-			fd.write('ApplicationName,Hash,PackageUrl,Issues,LicenceStatus\n')
 			fd.close()
 
     # read the app report urls file
@@ -153,65 +140,14 @@ def writeAppReportDataCsvFile(applicationEvaluations):
 				url = row[1]
 
                 # append the policy violations for this application report to the output csvfile
-				writeAppReportPolicyViolationsCsvFile(applicationName, url)
+				policyViolations(applicationName, url)
 
-                # append the security/license issues and status for the application report to the output csvfile
-				writeAppReportIssuesStatusCsvFile(applicationName, url)
-
-
-	print(appIssuesStatusCsvFile)
 	print(appPolicyViolationsCsvFile)
 
-	return
+	return 200
 
 
-def writeAppReportIssuesStatusCsvFile(applicationName, url):
-
-    # get the report raw data
-	statusCode, rawData = getNexusIqData('/' + url)
-
-	if not statusCode == 200:
-		print(str(statusCode) + ': ' + policyReportData + ' - ' + url)
-		return	
-        
-	components = rawData["components"]
-
-    # write the data
-	with open(appIssuesStatusCsvFile, 'a') as fd:
-			for component in components:
-				hash = component["hash"]
-				packageUrl  = component["packageUrl"]
-
-				licenseData = component["licenseData"]
-				if licenseData:
-					licenseStatus = licenseData["status"]
-				else:
-					licenseStatus = 'none'
-
-				if not packageUrl:
-					packageUrl = "none"
-
-				if type(component["securityData"]) is dict:
-					securityIssues = component["securityData"]["securityIssues"]
-
-					if len(securityIssues) > 0:
-						issues = ""
-						for securityIssue in securityIssues:
-							issues += securityIssue["reference"] + ":" + securityIssue["status"] + ";"
-						issues = issues[:-1]
-
-						#if securityIssue["status"] != 'Open':
-						line = applicationName + "," + hash + "," + packageUrl + "," + issues + "," + licenseStatus + "\n"
-						fd.write(line)
-				#else:
-					#line = applicationName + "," + hash + "," + packageUrl + "," + 'no security issues' + "\n"
-					#fd.write(line)
-
-
-	return
-
-
-def writeAppReportPolicyViolationsCsvFile(applicationName, url):
+def policyViolations(applicationName, url):
 
     # we want the policy violations
 	policyReportDataUrl = url.replace('/raw', '/policy')
@@ -219,7 +155,7 @@ def writeAppReportPolicyViolationsCsvFile(applicationName, url):
 
 	if not statusCode == 200:
 		print(str(statusCode) + ': ' + policyReportData + ' - ' + policyReportDataUrl)
-		return
+		return statusCode
 
 	components = policyReportData["components"]
 	application = policyReportData["application"]
@@ -253,11 +189,75 @@ def writeAppReportPolicyViolationsCsvFile(applicationName, url):
 	return
 
 
+def writeSecLicIssuesCsvFile():
+	with open(appIssuesStatusCsvFile, 'w') as fd:
+			fd.write('ApplicationName,Hash,PackageUrl,Issues,LicenceStatus\n')
+			fd.close()
+
+    # read the app report urls file
+	with open(appReportsUrlsCsvFile) as csvfile:
+			r = csv.reader(csvfile, delimiter=',')
+			for row in r:
+				applicationName = row[0]
+				url = row[1]
+
+                # append the security/license issues and status for the application report to the output csvfile
+				secLicIssues(applicationName, url)
+
+	print(appIssuesStatusCsvFile)
+
+	return 200
+
+
+def secLicIssues(applicationName, url):
+
+    # get the report raw data
+	statusCode, rawData = getNexusIqData('/' + url)
+
+	if not statusCode == 200:
+		print(str(statusCode) + ': ' + rawData + ' - ' + url)
+		return	
+        
+	components = rawData["components"]
+
+    # write the data
+	with open(appIssuesStatusCsvFile, 'a') as fd:
+			for component in components:
+				hash = component["hash"]
+				packageUrl  = component["packageUrl"]
+
+				licenseData = component["licenseData"]
+				if licenseData:
+					licenseStatus = licenseData["status"]
+				else:
+					licenseStatus = 'none'
+
+				if not packageUrl:
+					packageUrl = "none"
+
+				if type(component["securityData"]) is dict:
+					securityIssues = component["securityData"]["securityIssues"]
+
+					if len(securityIssues) > 0:
+						issues = ""
+						for securityIssue in securityIssues:
+							issues += securityIssue["reference"] + ":" + securityIssue["status"] + ":" + str(securityIssue["severity"]) + ";"
+						issues = issues[:-1]
+
+						#if securityIssue["status"] != 'Open':
+						line = applicationName + "," + hash + "," + packageUrl + "," + issues + "," + licenseStatus + "\n"
+						fd.write(line)
+				#else:
+					#line = applicationName + "," + hash + "," + packageUrl + "," + 'no security issues' + "\n"
+					#fd.write(line)
+					
+	return
+
 
 def loadPolicyViolationsByReport():
 	with open(appPolicyViolationsCsvFile, 'r') as fd:
 		for line in fd.readlines():
-				policyViolations.append(line)
+				policyViolationsDb.append(line)
 
 	return
 
@@ -280,7 +280,7 @@ def componentMapper():
 
 
 def findHash(hash):
-	for i in policyViolations:
+	for i in policyViolationsDb:
 		i = i[:-1]
 
 		if hash in i:
@@ -298,7 +298,13 @@ def main():
         if not getOverRidesData() == 200:
             sys.exit(-1)
 
-        if not getApplicationEvaluationReports() == 200:
+        if not getApplicationEvaluationReports() == 200:		
+            sys.exit(-1)
+
+        if not writePolicyViolationsCsvFile() == 200:
+            sys.exit(-1)
+
+        if not writeSecLicIssuesCsvFile() == 200:
             sys.exit(-1)
 
     # analyse
