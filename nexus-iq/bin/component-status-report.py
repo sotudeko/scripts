@@ -52,33 +52,6 @@ def writeJsonFile(jsonFile, jsonData):
 	return
 
 
-def writeOverRidesCsvFile(overrides):
-
-	components = overrides['securityOverrides']
-
-	with open(overRidesCsvFile, 'w') as fd:
-			fd.write("Application,Hash,PackageUrl,CVE,Status,Comment\n")
-			for component in components:
-				comment = component["comment"]
-				referenceId = component["referenceId"]
-				status = component["status"]
-				ownerPublicId = component["owner"]["ownerPublicId"]
-				ownerId = component["owner"]["ownerId"]
-
-				for affectedComponent in component["currentlyAffectedComponents"]:
-					packageUrl = affectedComponent["packageUrl"]
-					proprietary = affectedComponent["proprietary"]
-					thirdParty = affectedComponent["thirdParty"]
-					hash = affectedComponent["hash"]
-
-					line = ownerPublicId + "," + hash + "," + packageUrl +  "," + referenceId + "," + status + "," + comment + "\n"
-					fd.write(line)
-
-	print(overRidesCsvFile)
-
-	return
-
-
 def getOverRidesData():
     # get security vulnerabilty override data
     statusCode, data = getNexusIqData('/api/v2/securityOverrides')
@@ -93,6 +66,55 @@ def getOverRidesData():
         print(str(statusCode) + ': ' + data + ' - Overrides')
 
     return statusCode
+
+
+def writeOverRidesCsvFile(overrides):
+
+	components = overrides['securityOverrides']
+
+	with open(overRidesCsvFile, 'w') as fd:
+			fd.write("Application,Hash,PackageUrl,CVE,Status,Comment,SecurityScore,LicenseStatus\n")
+			for component in components:
+				comment = component["comment"]
+				referenceId = component["referenceId"]
+				status = component["status"]
+				ownerPublicId = component["owner"]["ownerPublicId"]
+				ownerId = component["owner"]["ownerId"]
+
+				for affectedComponent in component["currentlyAffectedComponents"]:
+					packageUrl = affectedComponent["packageUrl"]
+					proprietary = affectedComponent["proprietary"]
+					thirdParty = affectedComponent["thirdParty"]
+					hash = affectedComponent["hash"]
+
+					securityScore, licenseStatus = getSecurityScore(ownerPublicId, hash, referenceId)
+
+					line = ownerPublicId + "," + hash + "," + packageUrl +  "," + referenceId + "," + status + "," + comment + "," + str(securityScore) + "," + licenseStatus + "\n"
+					fd.write(line)
+
+	print(overRidesCsvFile)
+
+	return
+
+
+def getSecurityScore(applicationName, hash, findCve):
+	issue = secLicIssuesDb.get(applicationName + "-" + hash).split(',')
+	
+	cves = issue[3].split(';')
+	licenseStatus = issue[4]
+	licenseStatus = licenseStatus[:-1]
+	cveScore = 0
+
+	for c in cves:
+		el = c.split(':')
+		cve = el[0]
+		status = el[1]
+		score = el[2]
+
+		if cve == findCve:
+			cveScore = score
+
+	return cveScore, licenseStatus
 
 
 def getApplicationEvaluationReports():
@@ -269,18 +291,7 @@ def secLicIssues(applicationName, url):
 						# store in db and also write to file
 						secLicIssuesDb[key] = line
 						fd.write(line)
-				#else:
-					#line = applicationName + "," + hash + "," + packageUrl + "," + 'no security issues' + "\n"
-					#fd.write(line)
 					
-	return
-
-
-def loadPolicyViolationsByReport():
-	with open(appPolicyViolationsCsvFile, 'r') as fd:
-		for line in fd.readlines():
-				policyViolationsDb.append(line)
-
 	return
 
 
@@ -294,8 +305,8 @@ def componentMapper():
 				else:
 					lineCount += 1
 
-					# Hash,PackageUrl,CVE,Status
-					line = '{}:{}:{}:{}:{}'.format(row[0], row[1], row[2], row[3], row[4])
+					# Application,Hash,PackageUrl,CVE,Status,Comment,SecurityScore,LicenseStatus 
+					line = '{}:{}:{}:{}:{}:{}:{}'.format(row[0], row[1], row[2], row[3], row[4], row[6], row[7])
 
 					print (line)
 					findHash(row[1])
