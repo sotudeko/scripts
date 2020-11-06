@@ -20,6 +20,7 @@ appReportsJsonFile = '{}/{}'.format(outputDir, 'appreports.json')
 appReportsUrlsCsvFile = '{}/{}'.format(outputDir, 'appreportsurls.csv')
 appIssuesStatusCsvFile = '{}/{}'.format(outputDir, 'appissuesstatus.csv')
 appPolicyViolationsCsvFile = '{}/{}'.format(outputDir, 'apppolicyviolations.csv')
+statusSummaryCsvFile = '{}/{}'.format(outputDir, 'statussummary.csv')
 
 policyViolationsDb = []
 secLicIssuesDb = {}
@@ -295,7 +296,12 @@ def secLicIssues(applicationName, url):
 	return
 
 
-def componentMapper():
+def makeStatusSummary():
+
+	with open(statusSummaryCsvFile, 'w') as fd:
+			fd.write('Application,Hash,PackageUrl,PolicyName,PolicyId,Waived,CVE,SecurityScore,VulnStatus,LicenseStatus,Comment\n')
+			fd.close()
+
 	with open(overRidesCsvFile) as csvfile:
 			r = csv.reader(csvfile, delimiter=',')
 			lineCount = 0
@@ -307,25 +313,25 @@ def componentMapper():
 
 					# Application,Hash,PackageUrl,CVE,Status,Comment,SecurityScore,LicenseStatus 
 					line = '{}:{}:{}:{}:{}:{}:{}'.format(row[0], row[1], row[2], row[3], row[4], row[6], row[7])
+					headline = '{},{},{},{},{}'.format(row[3], row[6], row[4], row[7], row[5])
+					findHash(row[1], headline)
 
-					print (line)
-					findHash(row[1])
-
+	print(statusSummaryCsvFile)
 	return
 
 
-def findHash(hash):
+def findHash(hash, headline):
 
-	#if "model" in dict:
+	with open(statusSummaryCsvFile, 'a') as fd:
+		for i in policyViolationsDb:
 
-	for i in policyViolationsDb:
-
-		# remove newline
-		i = i[:-1]
-		
-		# search and print if we find matching hash
-		if hash in i:
-			print('  ' + i)
+			# remove newline
+			i = i[:-1]
+			
+			# search and print if we find matching hash
+			if hash in i:
+				line = i + "," + headline + "\n"
+				fd.write(line)
 
 	return
 
@@ -348,8 +354,8 @@ def main():
         if not getOverRidesData() == 200:
             sys.exit(-1)
 
-    # analyse
-    componentMapper()
+    # summary report
+    makeStatusSummary()
 
 
 if __name__ == '__main__':
