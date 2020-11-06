@@ -22,6 +22,8 @@ appIssuesStatusCsvFile = '{}/{}'.format(outputDir, 'appissuesstatus.csv')
 appPolicyViolationsCsvFile = '{}/{}'.format(outputDir, 'apppolicyviolations.csv')
 
 policyViolationsDb = []
+secLicIssuesDb = {}
+overRidesDb = []
 
 
 if len(sys.argv) > 4:
@@ -55,7 +57,7 @@ def writeOverRidesCsvFile(overrides):
 	components = overrides['securityOverrides']
 
 	with open(overRidesCsvFile, 'w') as fd:
-			fd.write("Hash,PackageUrl,CVE,Status,Comment\n")
+			fd.write("Application,Hash,PackageUrl,CVE,Status,Comment\n")
 			for component in components:
 				comment = component["comment"]
 				referenceId = component["referenceId"]
@@ -69,7 +71,7 @@ def writeOverRidesCsvFile(overrides):
 					thirdParty = affectedComponent["thirdParty"]
 					hash = affectedComponent["hash"]
 
-					line = hash + "," + packageUrl +  "," + referenceId + "," + status + "," + comment + "\n"
+					line = ownerPublicId + "," + hash + "," + packageUrl +  "," + referenceId + "," + status + "," + comment + "\n"
 					fd.write(line)
 
 	print(overRidesCsvFile)
@@ -172,6 +174,9 @@ def policyViolations(applicationName, url):
 				if not packageUrl:
 					packageUrl = "none"
 
+				if not outputFormat(packageUrl):
+					continue
+
 				policyName = ""
 				waived = ""
 
@@ -185,8 +190,18 @@ def policyViolations(applicationName, url):
 					policyThreatCategory = violation['policyThreatCategory']
 					policyViolationId = violation['policyViolationId']
 					line = applicationName + "," + hash + "," + packageUrl + "," + policyName + "," + policyId + "," + str(waived) + "\n"
+
+					# store in database and also write to file
+					policyViolationsDb.append(line)
 					fd.write(line)
 	return
+
+
+def outputFormat(purl):
+	if ":a-name/" in purl or ":npm/" in purl:
+		return True
+	else:
+		return False
 
 
 def writeSecLicIssuesCsvFile():
@@ -235,6 +250,9 @@ def secLicIssues(applicationName, url):
 				if not packageUrl:
 					packageUrl = "none"
 
+				if not outputFormat(packageUrl):
+					continue
+
 				if type(component["securityData"]) is dict:
 					securityIssues = component["securityData"]["securityIssues"]
 
@@ -245,7 +263,11 @@ def secLicIssues(applicationName, url):
 						issues = issues[:-1]
 
 						#if securityIssue["status"] != 'Open':
+						key = applicationName + "-" + hash
 						line = applicationName + "," + hash + "," + packageUrl + "," + issues + "," + licenseStatus + "\n"
+
+						# store in db and also write to file
+						secLicIssuesDb[key] = line
 						fd.write(line)
 				#else:
 					#line = applicationName + "," + hash + "," + packageUrl + "," + 'no security issues' + "\n"
@@ -271,18 +293,26 @@ def componentMapper():
 					lineCount += 1
 				else:
 					lineCount += 1
-					line = '{}:{}:{}:{}'.format(row[0], row[1], row[2], row[3])
-					print (line)
 
-					findHash(row[0])
+					# Hash,PackageUrl,CVE,Status
+					line = '{}:{}:{}:{}:{}'.format(row[0], row[1], row[2], row[3], row[4])
+
+					print (line)
+					findHash(row[1])
 
 	return
 
 
 def findHash(hash):
-	for i in policyViolationsDb:
-		i = i[:-1]
 
+	#if "model" in dict:
+
+	for i in policyViolationsDb:
+
+		# remove newline
+		i = i[:-1]
+		
+		# search and print if we find matching hash
 		if hash in i:
 			print('  ' + i)
 
@@ -295,9 +325,6 @@ def main():
         if not os.path.exists(outputDir):
             os.makedirs(outputDir)
 
-        if not getOverRidesData() == 200:
-            sys.exit(-1)
-
         if not getApplicationEvaluationReports() == 200:		
             sys.exit(-1)
 
@@ -307,8 +334,10 @@ def main():
         if not writeSecLicIssuesCsvFile() == 200:
             sys.exit(-1)
 
+        if not getOverRidesData() == 200:
+            sys.exit(-1)
+
     # analyse
-    loadPolicyViolationsByReport()
     componentMapper()
 
 
