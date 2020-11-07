@@ -10,9 +10,6 @@ iqUrl = sys.argv[1]
 iquser = sys.argv[2]
 iqpwd = sys.argv[3]
 
-# iqUrl = "http://localhost:8870"
-# iquser = "admin"
-# iqpwd = "admin123"
 
 generateData = True
 outputDir = './datafiles'
@@ -59,16 +56,15 @@ def writeJsonFile(jsonFile, jsonData):
 	return
 
 
-def applicationHasOverride(applicationName):
+def applicationHasOverride(applicationId):
 	exists = False
 
 	for o in overRidesDb:
 		info = o.split(',')
 
-		overrideApplicationName = info[0]
 		overrideApplicationId = info[1]
 
-		if overrideApplicationName == applicationName:
+		if overrideApplicationId == applicationId:
 			exists = True
 			break
 	
@@ -80,15 +76,15 @@ def getApplicationName(urlPath):
 	return(l[3])
 
 
-def componentHasOverride(applicationName, packageUrl):
+def componentHasOverride(applicationId, packageUrl):
 	exists = False
 
 	for o in overRidesDb:
 		info = o.split(',')
-		overrideApplication = info[0]
-		overridePackageUrl = info[2]
+		overrideApplicationId = info[1]
+		overridePackageUrl = info[4]
 
-		if overrideApplication == applicationName and overridePackageUrl == packageUrl:
+		if overrideApplicationId == applicationId and overridePackageUrl == packageUrl:
 			exists = True
 			break
 	
@@ -100,6 +96,37 @@ def outputFormat(purl):
 		return True
 	else:
 		return False
+
+
+def getPolicyViolationLine(applicationId, componentHash):
+	line = ""
+
+	for i in policyViolationsDb:
+		info = i.split(',')
+		pvApplicationId = info[1]
+		pvComponentHash = info[3]
+
+		if pvComponentHash == componentHash and pvApplicationId == applicationId:
+			# PolicyName,PolicyThreatLevel,Waived,PolicyId,PolicyViolationId
+			line = info[4] + "," + info[7] + "," + info[9].rstrip("\n") + "," + info[5] + "," + info[8]
+			break
+
+	return line.rstrip("\n")
+
+
+def getSecLicIssueLine(componentHash, cve):
+	line = ""
+
+	for i in secLicIssuesDb:
+		info = i.split(',')
+		issueComponentHash = info[1]
+		issueCve = info[3]
+
+		if issueComponentHash == componentHash and issueCve == cve:
+			line = info[4] + "," + info[5] + "," + info[6]
+			break
+
+	return line.rstrip("\n")
 
 
 def getOverRidesData():
@@ -114,12 +141,12 @@ def getOverRidesData():
 
 		# write also a summary csv file
 		with open(overRidesCsvFile, 'w') as fd:
-				fd.write("ApplicationName,ApplicationId,PackageUrl,ComponentHash,CVE,OverrideStatus,Comment,\n")
+				fd.write("ApplicationName,ApplicationId,OverrideStatus,Comment,PackageUrl,ComponentHash,CVE\n")
 				for override in overrides:
 					comment = override["comment"]
 					referenceId = override["referenceId"]
 					status = override["status"]
-					ownerPublicId = override["owner"]["ownerPublicId"]
+					ownerName = override["owner"]["ownerName"]
 					ownerId = override["owner"]["ownerId"]
 
 					for affectedComponent in override["currentlyAffectedComponents"]:
@@ -128,7 +155,11 @@ def getOverRidesData():
 						thirdParty = affectedComponent["thirdParty"]
 						componentHash = affectedComponent["hash"]
 
-						line = ownerPublicId + "," + ownerId + "," + packageUrl +  "," + componentHash + "," + referenceId + "," + status + "," + comment + "\n"
+						# write only if it is format we need
+						if not outputFormat(packageUrl):
+							continue
+
+						line = ownerName + "," + ownerId + "," + status + "," + comment + "," + packageUrl +  "," + componentHash + "," + referenceId + "\n"
 
 						# store and also write to file 
 						overRidesDb.append(line)
@@ -173,10 +204,12 @@ def getApplicationEvaluationReports():
                 for applicationEvaluation in applicationEvaluations:
                     applicationName = getApplicationName(applicationEvaluation["reportDataUrl"])
                     applicationReportUrl = applicationEvaluation["reportDataUrl"]
+                    applicationId = applicationEvaluation["applicationId"]
+                    stage = applicationEvaluation["stage"]
                     
                     # only write the details if the application has an override
-                    if applicationHasOverride(applicationName):
-                        line = applicationName + "," + applicationReportUrl + "\n"
+                    if applicationHasOverride(applicationId):
+                        line = applicationId + "," + stage + "," + applicationReportUrl + "\n"
                         fd.write(line)
     else:
         print(str(statusCode) + ': ' + applicationEvaluations + ' - Application Reports')
@@ -204,24 +237,23 @@ def getPolicyViolationsForOverrideApplications():
 	# get the policy violations for each override application 
 
 	with open(appPolicyViolationsCsvFile, 'w') as fd:
-			fd.write('ApplicationName,ApplicationId,PackageUrl,PolicyName,PolicyId,PolicyThreatCategory,PolicyThreatLevel,PolicyViolationId,Waived\n')
+			fd.write('ApplicationName,ApplicationId,PackageUrl,ComponentHash,PolicyName,PolicyId,PolicyThreatCategory,PolicyThreatLevel,PolicyViolationId,Waived\n')
 			fd.close()
 
     # read the app report urls file (it contains on applications with overrides)
 	with open(appReportsUrlsCsvFile) as csvfile:
 			r = csv.reader(csvfile, delimiter=',')
 			for row in r:
-				applicationName = row[0]
-				url = row[1]
+				url = row[2]
 
                 # append the policy violations for this application report to the output csvfile
-				writePolicyViolations(applicationName, url)
+				writePolicyViolations(url)
 
 	print(appPolicyViolationsCsvFile)
 	return 200
 
 
-def writePolicyViolations(applicationName, url):
+def writePolicyViolations(url):
 
     # we want the policy violations
 	policyReportDataUrl = url.replace('/raw', '/policy')
@@ -233,6 +265,7 @@ def writePolicyViolations(applicationName, url):
 
 	components = policyReportData["components"]
 	applicationId = policyReportData["application"]["id"]
+	applicationName = policyReportData["application"]["name"]
 	counts = policyReportData["counts"]
 	reportTime = policyReportData["reportTime"]
 	initiator = policyReportData["initiator"]
@@ -240,7 +273,7 @@ def writePolicyViolations(applicationName, url):
     #  write the data
 	with open(appPolicyViolationsCsvFile, 'a') as fd:
 			for component in components:
-				hash = component["hash"]
+				componentHash = component["hash"]
 				packageUrl  = component["packageUrl"]
 
 				if not packageUrl:
@@ -251,7 +284,7 @@ def writePolicyViolations(applicationName, url):
 					continue
 
 				# write only if this component has an override
-				if not componentHasOverride(applicationName, packageUrl):
+				if not componentHasOverride(applicationId, packageUrl):
 					continue
 
 				policyName = ""
@@ -270,7 +303,7 @@ def writePolicyViolations(applicationName, url):
 
 					# Only write if above threat level threshold
 					if policyThreatLevel >= 7:
-						line = applicationName + "," + applicationId + "," + packageUrl + "," + policyName + "," + policyId + "," + policyThreatCategory + "," + str(policyThreatLevel) + "," + policyViolationId + "," + str(waived) + "\n"
+						line = applicationName + "," + applicationId + "," + packageUrl + "," + componentHash + "," + policyName + "," + policyId + "," + policyThreatCategory + "," + str(policyThreatLevel) + "," + policyViolationId + "," + str(waived) + "\n"
 
 						# store and also write to file 
 						policyViolationsDb.append(line)
@@ -280,24 +313,24 @@ def writePolicyViolations(applicationName, url):
 
 def getSecLicIssuesForOverrideApplications():
 	with open(appIssuesStatusCsvFile, 'w') as fd:
-			fd.write('ApplicationName,ComponentHash,PackageUrl,CVE,ThreatLevel,VulnStatus,LicenceStatus\n')
+			fd.write('ApplicationId,ComponentHash,PackageUrl,CVE,SecurityScore,VulnStatus,LicenceStatus\n')
 			fd.close()
 
     # read the app report urls file (it contains on applications with overrides)
 	with open(appReportsUrlsCsvFile) as csvfile:
 			r = csv.reader(csvfile, delimiter=',')
 			for row in r:
-				applicationName = row[0]
-				url = row[1]
+				applicationId = row[0]
+				url = row[2]
 
                 # append the security/license issues and status for the application report to the output csvfile
-				writeSecLicIssues(applicationName, url)
+				writeSecLicIssues(applicationId, url)
 
 	print(appIssuesStatusCsvFile)
 	return 200
 
 
-def writeSecLicIssues(applicationName, url):
+def writeSecLicIssues(applicationId, url):
 
     # get the report raw data
 	statusCode, rawData = getNexusIqData('/' + url)
@@ -328,7 +361,7 @@ def writeSecLicIssues(applicationName, url):
 					continue
 
 				# write only if this component has an override
-				if not componentHasOverride(applicationName, packageUrl):
+				if not componentHasOverride(applicationId, packageUrl):
 					continue
 
 				if type(component["securityData"]) is dict:
@@ -336,7 +369,9 @@ def writeSecLicIssues(applicationName, url):
 
 					if len(securityIssues) > 0:
 						for securityIssue in securityIssues:
-							line = applicationName + "," + hash + "," + packageUrl + "," + securityIssue["reference"] + "," + str(securityIssue["severity"]) + "," + securityIssue["status"] + "," + licenseStatus + "\n"
+							# if not securityIssue["status"] == "Open" and licenseStatus == "Open":
+							line = applicationId + "," + hash + "," + packageUrl + "," + securityIssue["reference"] + "," + str(securityIssue["severity"]) + "," + securityIssue["status"] + "," + licenseStatus + "\n"
+							secLicIssuesDb.append(line)
 							fd.write(line)
 	
 	return
@@ -398,40 +433,29 @@ def getPolicyViolationData(applicationId, policyId, policyViolationId):
 def makeStatusSummary():
 
 	with open(statusSummaryCsvFile, 'w') as fd:
-			fd.write('Application,Hash,PackageUrl,PolicyName,PolicyId,Waived,CVE,SecurityScore,VulnStatus,LicenseStatus,Comment\n')
-			fd.close()
+			fd.write('ApplicationName,ApplicationId,OverrideStatus,Comment,PackageUrl,ComponentHash,CVE,SecurityScore,VulnStatus,LicenseStatus,PolicyName,PolicyThreatLevel,Waived,PolicyId,PolicyViolationId\n')
+			with open(overRidesCsvFile) as csvfile:
+					# ApplicationName,ApplicationId,OverrideStatus,Comment,PackageUrl,ComponentHash,CVE
 
-	with open(overRidesCsvFile) as csvfile:
-			r = csv.reader(csvfile, delimiter=',')
-			lineCount = 0
-			for row in r:
-				if lineCount == 0:
-					lineCount += 1
-				else:
-					lineCount += 1
+					r = csv.reader(csvfile, delimiter=',')
+					lineCount = 0
+					for row in r:
+						if lineCount == 0:
+							lineCount += 1
+						else:
+							lineCount += 1
 
-					# Application,Hash,PackageUrl,CVE,Status,Comment,SecurityScore,LicenseStatus 
-					line = '{}:{}:{}:{}:{}:{}:{}'.format(row[0], row[1], row[2], row[3], row[4], row[6], row[7])
-					headline = '{},{},{},{},{}'.format(row[3], row[6], row[4], row[7], row[5])
-					findHash(row[1], headline)
+							applicationId = row[1]
+							componentHash = row[5]
+							cve = row[6]
+
+							issueLine = getSecLicIssueLine(componentHash, cve)
+							pvLine = getPolicyViolationLine(applicationId, componentHash)
+
+							line = '{},{},{},{},{},{},{},{},{}\n'.format(row[0], row[1], row[2], row[3], row[4], row[5], row[6], issueLine, pvLine)
+							fd.write(line)
 
 	print(statusSummaryCsvFile)
-	return
-
-
-def findHash(hash, headline):
-
-	with open(statusSummaryCsvFile, 'a') as fd:
-		for i in policyViolationsDb:
-
-			# remove newline
-			i = i[:-1]
-			
-			# search and print if we find matching hash
-			if hash in i:
-				line = i + "," + headline + "\n"
-				fd.write(line)
-
 	return
 
 
@@ -454,7 +478,7 @@ def main():
             sys.exit(-1)
 
     # summary report
-    #makeStatusSummary()
+    makeStatusSummary()
 
 
 if __name__ == '__main__':
