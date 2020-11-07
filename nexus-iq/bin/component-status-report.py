@@ -22,11 +22,11 @@ appIssuesStatusCsvFile = '{}/{}'.format(outputDir, 'appissuesstatus.csv')
 appPolicyViolationsCsvFile = '{}/{}'.format(outputDir, 'apppolicyviolations.csv')
 statusSummaryCsvFile = '{}/{}'.format(outputDir, 'statussummary.csv')
 
-overRideApplicationNameDb = {}
+overRideApplicationNamesDb = {}
 secLicIssuesDb = {}
 
 policyViolationsDb = []
-overRidesDb = []
+overRidesDataDb = []
 
 
 if len(sys.argv) > 4:
@@ -58,15 +58,12 @@ def writeJsonFile(jsonFile, jsonData):
 def getOverRidesData():
     # get security vulnerabilty override data
     statusCode, data = getNexusIqData('/api/v2/securityOverrides')
-    overRidesDb = data
-
 
     if statusCode == 200:
         # Write the json data to file
         writeJsonFile(overRidesJsonFile, data)
 
-        # Extract relevant data and write to CSV file
-        # writeOverRidesCsvFile(data)
+        # Save the overrides data
         saveOverridesData(data)
     else:
         print(str(statusCode) + ': ' + data + ' - Overrides')
@@ -91,36 +88,35 @@ def saveOverridesData(overrides):
 			hash = affectedComponent["hash"]
 
 			line = ownerPublicId + "," + hash + "," + packageUrl +  "," + referenceId + "," + status + "," + comment
-			overRideApplicationNameDb[ownerPublicId] = line
+
+			# this will be used for application name lookup
+			overRideApplicationNamesDb[ownerPublicId] = line
+			
+			# keep all data to write to file later
+			overRidesDataDb.append(line)
 
 	return
 
 
-def writeOverRidesCsvFile(overrides):
-
-	components = overrides['securityOverrides']
+def writeOverRidesCsvFile():
 
 	with open(overRidesCsvFile, 'w') as fd:
 			fd.write("Application,Hash,PackageUrl,CVE,Status,Comment,SecurityScore,LicenseStatus\n")
-			for component in components:
-				comment = component["comment"]
-				referenceId = component["referenceId"]
-				status = component["status"]
-				ownerPublicId = component["owner"]["ownerPublicId"]
-				ownerId = component["owner"]["ownerId"]
+			for item in overRidesDataDb:
+				items = item.split(',')
 
-				for affectedComponent in component["currentlyAffectedComponents"]:
-					packageUrl = affectedComponent["packageUrl"]
-					proprietary = affectedComponent["proprietary"]
-					thirdParty = affectedComponent["thirdParty"]
-					hash = affectedComponent["hash"]
+				ownerPublicId = items[0]
+				hash = items[1]
+				packageUrl = items[2]
+				referenceId = items[3]
+				status = items[4]
+				comment = items[5]
 
-					securityScore, licenseStatus = getSecurityScore(ownerPublicId, hash, referenceId)
+				securityScore, licenseStatus = getSecurityScore(ownerPublicId, hash, referenceId)
+				line = ownerPublicId + "," + hash + "," + packageUrl +  "," + referenceId + "," + status + "," + comment + "," + str(securityScore) + "," + licenseStatus + "\n"
+				fd.write(line)
 
-					line = ownerPublicId + "," + hash + "," + packageUrl +  "," + referenceId + "," + status + "," + comment + "," + str(securityScore) + "," + licenseStatus + "\n"
-					fd.write(line)
-
-	print(overRidesCsvFile)
+	print (overRidesCsvFile)
 	return 200
 
 
@@ -171,7 +167,8 @@ def writeAppReportUrlsCsvFile(applicationEvaluations):
 				applicationName = getApplicationName(applicationEvaluation["reportDataUrl"])
 				applicationReportUrl = applicationEvaluation["reportDataUrl"]
 
-				if overRideApplicationNameDb.get(applicationName):
+				# only write the details if the application has an override
+				if overRideApplicationNamesDb.get(applicationName):
 					line = applicationName + "," + applicationReportUrl + "\n"
 					fd.write(line)
 
@@ -381,11 +378,11 @@ def main():
         if not writeSecLicIssuesCsvFile() == 200:
             sys.exit(-1)
 
-        # if not writeOverRidesCsvFile(overRidesDb) == 200:
-            # sys.exit(-1)
+        if not writeOverRidesCsvFile() == 200:
+            sys.exit(-1)
 
     # summary report
-    #makeStatusSummary()
+    makeStatusSummary()
 
 
 if __name__ == '__main__':
