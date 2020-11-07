@@ -22,8 +22,10 @@ appIssuesStatusCsvFile = '{}/{}'.format(outputDir, 'appissuesstatus.csv')
 appPolicyViolationsCsvFile = '{}/{}'.format(outputDir, 'apppolicyviolations.csv')
 statusSummaryCsvFile = '{}/{}'.format(outputDir, 'statussummary.csv')
 
-policyViolationsDb = []
+overRideApplicationNameDb = {}
 secLicIssuesDb = {}
+
+policyViolationsDb = []
 overRidesDb = []
 
 
@@ -46,7 +48,7 @@ def getNexusIqData(api):
 
 def writeJsonFile(jsonFile, jsonData):
 	with open(jsonFile, 'w') as fd:
-			json.dump(jsonData, fd)
+			json.dump(jsonData, fd, indent=4)
 
 	print(jsonFile)
 
@@ -56,17 +58,42 @@ def writeJsonFile(jsonFile, jsonData):
 def getOverRidesData():
     # get security vulnerabilty override data
     statusCode, data = getNexusIqData('/api/v2/securityOverrides')
+    overRidesDb = data
+
 
     if statusCode == 200:
         # Write the json data to file
         writeJsonFile(overRidesJsonFile, data)
 
         # Extract relevant data and write to CSV file
-        writeOverRidesCsvFile(data)
+        # writeOverRidesCsvFile(data)
+        saveOverridesData(data)
     else:
         print(str(statusCode) + ': ' + data + ' - Overrides')
 
     return statusCode
+
+
+def saveOverridesData(overrides):
+	components = overrides['securityOverrides']
+
+	for component in components:
+		comment = component["comment"]
+		referenceId = component["referenceId"]
+		status = component["status"]
+		ownerPublicId = component["owner"]["ownerPublicId"]
+		ownerId = component["owner"]["ownerId"]
+
+		for affectedComponent in component["currentlyAffectedComponents"]:
+			packageUrl = affectedComponent["packageUrl"]
+			proprietary = affectedComponent["proprietary"]
+			thirdParty = affectedComponent["thirdParty"]
+			hash = affectedComponent["hash"]
+
+			line = ownerPublicId + "," + hash + "," + packageUrl +  "," + referenceId + "," + status + "," + comment
+			overRideApplicationNameDb[ownerPublicId] = line
+
+	return
 
 
 def writeOverRidesCsvFile(overrides):
@@ -94,8 +121,7 @@ def writeOverRidesCsvFile(overrides):
 					fd.write(line)
 
 	print(overRidesCsvFile)
-
-	return
+	return 200
 
 
 def getSecurityScore(applicationName, hash, findCve):
@@ -145,8 +171,9 @@ def writeAppReportUrlsCsvFile(applicationEvaluations):
 				applicationName = getApplicationName(applicationEvaluation["reportDataUrl"])
 				applicationReportUrl = applicationEvaluation["reportDataUrl"]
 
-				line = applicationName + "," + applicationReportUrl + "\n"
-				fd.write(line)
+				if overRideApplicationNameDb.get(applicationName):
+					line = applicationName + "," + applicationReportUrl + "\n"
+					fd.write(line)
 
 	print(appReportsUrlsCsvFile)
 	return
@@ -342,6 +369,9 @@ def main():
         if not os.path.exists(outputDir):
             os.makedirs(outputDir)
 
+        if not getOverRidesData() == 200:
+            sys.exit(-1)
+
         if not getApplicationEvaluationReports() == 200:		
             sys.exit(-1)
 
@@ -351,11 +381,11 @@ def main():
         if not writeSecLicIssuesCsvFile() == 200:
             sys.exit(-1)
 
-        if not getOverRidesData() == 200:
-            sys.exit(-1)
+        # if not writeOverRidesCsvFile(overRidesDb) == 200:
+            # sys.exit(-1)
 
     # summary report
-    makeStatusSummary()
+    #makeStatusSummary()
 
 
 if __name__ == '__main__':
