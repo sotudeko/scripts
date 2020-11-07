@@ -377,59 +377,6 @@ def writeSecLicIssues(applicationId, url):
 	return
 
 
-def getPolicyViolationDetails():
-
-	with open(appPolicyViolationsCsvFile) as csvfile:
-			r = csv.reader(csvfile, delimiter=',')
-			lineCount = 0
-			for row in r:
-				if lineCount == 0:
-					lineCount += 1
-				else:
-					lineCount += 1
-
-					#ApplicationName,ApplicationId,PackageUrl,PolicyName,PolicyId,PolicyThreatCategory,PolicyThreatLevel,PolicyViolationId,Waived
-					applicationName = row[0]
-					applicationId = row[1]
-					policyId = row[4]
-					policyViolationId = row[7]
-
-					statusCode, info = getPolicyViolationData(applicationId, policyId, policyViolationId)
-					
-	return
-
-
-def getPolicyViolationData(applicationId, policyId, policyViolationId):
-	# get policy violation data
-
-	data = {}
-	statusCode, pvd = getNexusIqData('/api/v2/policyViolations?p=' + policyId)
-
-	if statusCode == 200:
-		applicationsViolations = pvd["applicationViolations"]
-
-		for application in applicationsViolations:
-			pvApplicationId = application["application"]["id"]
-
-			# look for the application we need
-			if pvApplicationId == applicationId:
-				
-				for policyViolation in application["policyViolations"]:
-					pvPolicyViolationId = policyViolation["policyViolationId"]
-
-					# look for the policy violation we need
-					if pvPolicyViolationId == policyViolationId:
-						data["policyId"] = policyViolation["policyId"]
-						data["policyName"] = policyViolation["policyName"]
-						data["policyViolationId"] = policyViolation["policyViolationId"]
-						data["stageId"] = policyViolation["stageId"]
-						data["threatLevel"] = policyViolation["threatLevel"]
-						data["packageUrl"] = policyViolation["component"]["packageUrl"]
-						break
-	
-	return statusCode, data
-
-
 def makeStatusSummary():
 
 	with open(statusSummaryCsvFile, 'w') as fd:
