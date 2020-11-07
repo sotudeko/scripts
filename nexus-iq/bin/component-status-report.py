@@ -19,10 +19,12 @@ overRidesCsvFile = '{}/{}'.format(outputDir, 'overrides.csv')
 appReportsJsonFile = '{}/{}'.format(outputDir, 'appreports.json')
 appReportsUrlsCsvFile = '{}/{}'.format(outputDir, 'appreportsurls.csv')
 appIssuesStatusCsvFile = '{}/{}'.format(outputDir, 'appissuesstatus.csv')
+
 appPolicyViolationsCsvFile = '{}/{}'.format(outputDir, 'apppolicyviolations.csv')
+# appPolicyViolationsJsonFile = '{}/{}'.format(outputDir, 'apppolicyviolations.json')
+
 statusSummaryCsvFile = '{}/{}'.format(outputDir, 'statussummary.csv')
 
-overRideApplicationNamesDb = {}
 secLicIssuesDb = {}
 
 policyViolationsDb = []
@@ -89,12 +91,10 @@ def saveOverridesData(overrides):
 
 			line = ownerPublicId + "," + hash + "," + packageUrl +  "," + referenceId + "," + status + "," + comment
 
-			# this will be used for application name lookup
-			overRideApplicationNamesDb[ownerPublicId] = line
-			
 			# keep all data to write to file later
 			overRidesDataDb.append(line)
 
+	print (overRidesDataDb)
 	return
 
 
@@ -142,17 +142,27 @@ def getSecurityScore(applicationName, hash, findCve):
 
 def getApplicationEvaluationReports():
     # get all application reports info
-    statusCode, data = getNexusIqData('/api/v2/reports/applications')
+    statusCode, applicationEvaluations = getNexusIqData('/api/v2/reports/applications')
 
     if statusCode == 200:
          # Write the json data to file
-        writeJsonFile(appReportsJsonFile, data)
+        writeJsonFile(appReportsJsonFile, applicationEvaluations)
 
         # Get the Url of each report and write to CSV file
-        writeAppReportUrlsCsvFile(data)
+        # writeAppReportUrlsCsvFile(data)
+        with open(appReportsUrlsCsvFile, 'w') as fd:
+                for applicationEvaluation in applicationEvaluations:
+                    applicationName = getApplicationName(applicationEvaluation["reportDataUrl"])
+                    applicationReportUrl = applicationEvaluation["reportDataUrl"]
+                    
+                    # only write the details if the application has an override
+                    if applicationHasOverride(applicationName):
+                        line = applicationName + "," + applicationReportUrl + "\n"
+                        fd.write(line)
     else:
-        print(str(statusCode) + ': ' + data + ' - Application Reports')
+        print(str(statusCode) + ': ' + applicationEvaluations + ' - Application Reports')
 
+    print(appReportsUrlsCsvFile)
     return statusCode
 
 
@@ -168,7 +178,7 @@ def writeAppReportUrlsCsvFile(applicationEvaluations):
 				applicationReportUrl = applicationEvaluation["reportDataUrl"]
 
 				# only write the details if the application has an override
-				if overRideApplicationNamesDb.get(applicationName):
+				if applicationHasOverride(applicationName):
 					line = applicationName + "," + applicationReportUrl + "\n"
 					fd.write(line)
 
@@ -177,8 +187,10 @@ def writeAppReportUrlsCsvFile(applicationEvaluations):
 
 
 def writePolicyViolationsCsvFile():
+	# get the policy violations for each application that has an override
+
 	with open(appPolicyViolationsCsvFile, 'w') as fd:
-			fd.write('ApplicationName,Hash,PackageUrl,PolicyName,PolicyId,Waived\n')
+			fd.write('ApplicationName,ApplicationId,PackageUrl,PolicyName,PolicyId,PolicyThreatCategory,PolicyThreatLevel,PolicyViolationId,Waived\n')
 			fd.close()
 
     # read the app report urls file
@@ -189,11 +201,24 @@ def writePolicyViolationsCsvFile():
 				url = row[1]
 
                 # append the policy violations for this application report to the output csvfile
-				policyViolations(applicationName, url)
+				# only if it has an override
+				if applicationHasOverride(applicationName):
+					policyViolations(applicationName, url)
 
 	print(appPolicyViolationsCsvFile)
-
 	return 200
+
+def applicationHasOverride(applicationName):
+	exists = False
+
+	for o in overRidesDataDb:
+		info = o.split(',')
+		overrideApplication = info[0]
+		if overrideApplication == applicationName:
+			exists = True
+			break
+	
+	return exists
 
 
 def policyViolations(applicationName, url):
@@ -205,6 +230,8 @@ def policyViolations(applicationName, url):
 	if not statusCode == 200:
 		print(str(statusCode) + ': ' + policyReportData + ' - ' + policyReportDataUrl)
 		return statusCode
+
+	# writeJsonFile(outputDir + "/apppolicyviolations-" + applicationName + ".json", policyReportData)
 
 	components = policyReportData["components"]
 	application = policyReportData["application"]
@@ -221,7 +248,12 @@ def policyViolations(applicationName, url):
 				if not packageUrl:
 					packageUrl = "none"
 
+				# write only if needed format - we want a-name's only
 				if not outputFormat(packageUrl):
+					continue
+
+				# write only if this component has an override
+				if not componentHasOverride(applicationName, packageUrl):
 					continue
 
 				policyName = ""
@@ -235,13 +267,32 @@ def policyViolations(applicationName, url):
 					waived = violation['waived']
 					grandfathered = violation['grandfathered']
 					policyThreatCategory = violation['policyThreatCategory']
+					policyThreatLevel = violation['policyThreatLevel']
 					policyViolationId = violation['policyViolationId']
-					line = applicationName + "," + hash + "," + packageUrl + "," + policyName + "," + policyId + "," + str(waived) + "\n"
 
-					# store in database and also write to file
-					policyViolationsDb.append(line)
-					fd.write(line)
+					# Only write if above threat level threshold
+					if policyThreatLevel >= 7:
+						line = applicationName + "," + hash + "," + packageUrl + "," + policyName + "," + policyId + "," + policyThreatCategory + "," + str(policyThreatLevel) + "," + policyViolationId + "," + str(waived) + "\n"
+
+						# store in database and also write to file 
+						policyViolationsDb.append(line)
+						fd.write(line)
 	return
+
+
+def componentHasOverride(applicationName, packageUrl):
+	exists = False
+
+	for o in overRidesDataDb:
+		info = o.split(',')
+		overrideApplication = info[0]
+		overridePackageUrl = info[2]
+
+		if overrideApplication == applicationName and overridePackageUrl == packageUrl:
+			exists = True
+			break
+	
+	return exists
 
 
 def outputFormat(purl):
