@@ -21,7 +21,6 @@ appReportsUrlsCsvFile = '{}/{}'.format(outputDir, 'appreportsurls.csv')
 appIssuesStatusCsvFile = '{}/{}'.format(outputDir, 'appissuesstatus.csv')
 
 appPolicyViolationsCsvFile = '{}/{}'.format(outputDir, 'apppolicyviolations.csv')
-# appPolicyViolationsJsonFile = '{}/{}'.format(outputDir, 'apppolicyviolations.json')
 
 statusSummaryCsvFile = '{}/{}'.format(outputDir, 'statussummary.csv')
 
@@ -248,7 +247,7 @@ def policyViolations(applicationName, url):
 				if not packageUrl:
 					packageUrl = "none"
 
-				# write only if needed format - we want a-name's only
+				# write only if it is format we need
 				if not outputFormat(packageUrl):
 					continue
 
@@ -315,7 +314,9 @@ def writeSecLicIssuesCsvFile():
 				url = row[1]
 
                 # append the security/license issues and status for the application report to the output csvfile
-				secLicIssues(applicationName, url)
+				# only if it has an override
+				if applicationHasOverride(applicationName):
+					secLicIssues(applicationName, url)
 
 	print(appIssuesStatusCsvFile)
 
@@ -348,7 +349,12 @@ def secLicIssues(applicationName, url):
 				if not packageUrl:
 					packageUrl = "none"
 
+				# write only if it is format we need
 				if not outputFormat(packageUrl):
+					continue
+
+				# write only if this component has an override
+				if not componentHasOverride(applicationName, packageUrl):
 					continue
 
 				if type(component["securityData"]) is dict:
