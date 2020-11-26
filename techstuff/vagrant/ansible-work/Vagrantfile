@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  
+  config.vm.box = "centos/7"
+
+  config.vm.network "forwarded_port", guest: 8081, host: 8081
+
+  config.vm.provision :shell, path: "installs/tools.sh"
+  config.vm.provision :shell, path: "installs/java.sh"
+
+
+  # config.vm.provision "docker" do |d|
+  #   d.run "jenkins/jenkins", cmd: "bash -l", args: "-v 'jenkins_home:/var/jenkins_home' -p '8080:8080'"
+  #   d.run "sonatype/nexus3", cmd: "bash -l", args: "-v 'nexus-data:/nexus-data' -p '8081:8081'"
+  #   d.pull_images "sonatype/nexus-iq-server"
+  # end
+
+  # config.vm.provision "docker" do |d|
+  #   d.run "jenkins", args: "-v 'jenkins_home:/var/jenkins_home' -p '8080:8080'"
+  #   d.run "sonatype/nexus3", args: "-v 'nexus-data:/nexus-data' -p '8081:8081'"
+  # end
+
+end

@@ -1,0 +1,60 @@
+{
+    "image": "centos",
+    "unapproved": [
+        "RHSA-2019:0049",
+        "RHSA-2019:0049",
+        "RHSA-2019:0194"
+    ],
+    "vulnerabilities": [
+        {
+            "featurename": "systemd",
+            "featureversion": "219-62.el7",
+            "vulnerability": "RHSA-2019:0049",
+            "namespace": "centos:7",
+            "description": "The systemd packages contain systemd, a system and service manager for Linux, compatible with the SysV and LSB init scripts. It provides aggressive parallelism capabilities, uses socket and D-Bus activation for starting services, offers on-demand starting of daemons, and keeps track of processes using Linux cgroups. In addition, it supports snapshotting and restoring of the system state, maintains mount and automount points, and implements an elaborate transactional dependency-based service control logic. It can also work as a drop-in replacement for sysvinit. Security Fix(es): * systemd: Out-of-bounds heap write in systemd-networkd dhcpv6 option handling (CVE-2018-15688) * systemd: stack overflow when calling syslog from a command with long cmdline (CVE-2018-16864) * systemd: stack overflow when receiving many journald entries (CVE-2018-16865) For more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section. Red Hat would like to thank Ubuntu Security Team for reporting CVE-2018-15688 and Qualys Research Labs for reporting CVE-2018-16864 and CVE-2018-16865. Upstream acknowledges Felix Wilhelm (Google) as the original reporter of CVE-2018-15688.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:0049",
+            "severity": "High",
+            "fixedby": "0:219-62.el7_6.2"
+        },
+        {
+            "featurename": "systemd-libs",
+            "featureversion": "219-62.el7",
+            "vulnerability": "RHSA-2019:0049",
+            "namespace": "centos:7",
+            "description": "The systemd packages contain systemd, a system and service manager for Linux, compatible with the SysV and LSB init scripts. It provides aggressive parallelism capabilities, uses socket and D-Bus activation for starting services, offers on-demand starting of daemons, and keeps track of processes using Linux cgroups. In addition, it supports snapshotting and restoring of the system state, maintains mount and automount points, and implements an elaborate transactional dependency-based service control logic. It can also work as a drop-in replacement for sysvinit. Security Fix(es): * systemd: Out-of-bounds heap write in systemd-networkd dhcpv6 option handling (CVE-2018-15688) * systemd: stack overflow when calling syslog from a command with long cmdline (CVE-2018-16864) * systemd: stack overflow when receiving many journald entries (CVE-2018-16865) For more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section. Red Hat would like to thank Ubuntu Security Team for reporting CVE-2018-15688 and Qualys Research Labs for reporting CVE-2018-16864 and CVE-2018-16865. Upstream acknowledges Felix Wilhelm (Google) as the original reporter of CVE-2018-15688.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:0049",
+            "severity": "High",
+            "fixedby": "0:219-62.el7_6.2"
+        },
+        {
+            "featurename": "bind-license",
+            "featureversion": "32:9.9.4-72.el7",
+            "vulnerability": "RHSA-2019:0194",
+            "namespace": "centos:7",
+            "description": "The Berkeley Internet Name Domain (BIND) is an implementation of the Domain Name System (DNS) protocols. BIND includes a DNS server (named); a resolver library (routines for applications to use when interfacing with DNS); and tools for verifying that the DNS server is operating correctly. Security Fix(es): * bind: Crash from assertion error when debug log level is 10 and log entries meet buffer boundary (CVE-2018-5742) For more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:0194",
+            "severity": "Medium",
+            "fixedby": "32:9.9.4-73.el7_6"
+        },
+        {
+            "featurename": "systemd",
+            "featureversion": "219-62.el7",
+            "vulnerability": "RHSA-2019:0201",
+            "namespace": "centos:7",
+            "description": "The systemd packages contain systemd, a system and service manager for Linux, compatible with the SysV and LSB init scripts. It provides aggressive parallelism capabilities, uses socket and D-Bus activation for starting services, offers on-demand starting of daemons, and keeps track of processes using Linux cgroups. In addition, it supports snapshotting and restoring of the system state, maintains mount and automount points, and implements an elaborate transactional dependency-based service control logic. It can also work as a drop-in replacement for sysvinit. Security Fix(es): * systemd: memory leak in journald-server.c introduced by fix for CVE-2018-16864 (CVE-2019-3815) For more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:0201",
+            "severity": "Low",
+            "fixedby": "0:219-62.el7_6.3"
+        },
+        {
+            "featurename": "systemd-libs",
+            "featureversion": "219-62.el7",
+            "vulnerability": "RHSA-2019:0201",
+            "namespace": "centos:7",
+            "description": "The systemd packages contain systemd, a system and service manager for Linux, compatible with the SysV and LSB init scripts. It provides aggressive parallelism capabilities, uses socket and D-Bus activation for starting services, offers on-demand starting of daemons, and keeps track of processes using Linux cgroups. In addition, it supports snapshotting and restoring of the system state, maintains mount and automount points, and implements an elaborate transactional dependency-based service control logic. It can also work as a drop-in replacement for sysvinit. Security Fix(es): * systemd: memory leak in journald-server.c introduced by fix for CVE-2018-16864 (CVE-2019-3815) For more details about the security issue(s), including the impact, a CVSS score, and other related information, refer to the CVE page(s) listed in the References section.",
+            "link": "https://access.redhat.com/errata/RHSA-2019:0201",
+            "severity": "Low",
+            "fixedby": "0:219-62.el7_6.3"
+        }
+    ]
+}

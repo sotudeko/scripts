@@ -1,0 +1,19 @@
+{
+  "applicationId" : "md5",
+  "scanId" : "f21a280aa2b64124ab83728e7bf2182c",
+  "reportHtmlUrl" : "http://localhost:8070/ui/links/application/md5/report/f21a280aa2b64124ab83728e7bf2182c",
+  "reportPdfUrl" : "http://localhost:8070/ui/links/application/md5/report/f21a280aa2b64124ab83728e7bf2182c/pdf",
+  "reportDataUrl" : "http://localhost:8070/api/v2/applications/md5/reports/f21a280aa2b64124ab83728e7bf2182c/raw",
+  "policyAction" : "None",
+  "policyEvaluationResult" : {
+    "alerts" : [ ],
+    "affectedComponentCount" : 0,
+    "criticalComponentCount" : 0,
+    "severeComponentCount" : 0,
+    "moderateComponentCount" : 0,
+    "criticalPolicyViolationCount" : 0,
+    "severePolicyViolationCount" : 0,
+    "moderatePolicyViolationCount" : 0,
+    "grandfatheredPolicyViolationCount" : 0
+  }
+}

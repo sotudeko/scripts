@@ -1,0 +1,41 @@
+- hosts: localhost
+  tasks:
+    - uri:
+        url: http://localhost:8081/service/rest/v1/components?repository=mvn-releases
+        method: GET
+        user: 'admin'
+        password: 'admin123'
+      register: rlist
+    
+    - debug:
+        var: rlist
+
+    - uri:
+        url: http://localhost:8081/service/rest/v1/components?repository=mvn-releases
+        method: POST
+        user: 'admin'
+        password: 'admin123'
+        body: "{{ lookup('file','data.json') }}"
+        body_format: json
+        status_code: 200,204
+      register: op
+
+    - debug:
+        var: op
+
+        #headers:
+          #"Content-Type": application/x-www-form-urlencoded
+        #body: "maven2.groupId=org.test&maven2.artifactId=webwolf&maven2.version=1.2&maven2.asset1=@/Users/sotudeko/Development/scan-artifacts/java/webwolf-8.0.0.M21.jar&maven2.asset1.extension=jar&maven2.generate-pom=true"
+        #return_content: yes
+        #force_basic_auth: yes
+        #body_format: json
+        #body: {"maven2.groupId":"org.test","maven2.artifactId":"webwolf","maven2.version":"1.4","maven2.asset1":"/Users/sotudeko/Development/scan-artifacts/java/webwolf-8.0.0.M21.jar","maven2.asset1.extension":"jar","maven2.generate-pom":"true"}
+        #body: "maven2.groupId=org.test&maven2.artifactId=webwolf&maven2.version=1.2&maven2.asset1=@/Users/sotudeko/Development/scan-artifacts/java/webwolf-8.0.0.M21.jar&maven2.asset1.extension=jar&maven2.generate-pom=true"
+
+        #body: 
+          #maven2.groupId: org.test 
+          #maven2.artifactId: webwolf 
+          #maven2.version: 1.3 
+          #maven2.asset1.extension: jar 
+          #maven2.generate-pom: true
+          ####maven2.asset1: "@/Users/sotudeko/Development/scan-artifacts/java/webwolf-8.0.0.M21.jar"

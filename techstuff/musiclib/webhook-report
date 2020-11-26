@@ -1,0 +1,132 @@
+
+# Webhook payload
+# applicationEvaluation.ownerId = applicationId
+
+# webwolf
+
+{
+    "timestamp": "2019-01-15T11:00:42.454+0000",
+    "initiator": "admin",
+    "id": "1074c39d40944e41b8ce1c41ba1d0c69",
+    "applicationEvaluation": {
+        "policyEvaluationId": "1074c39d40944e41b8ce1c41ba1d0c69",
+        "stage": "stage-release",
+        "ownerId": "8060127b0f2d495faa0a0638a2856a89",
+        "evaluationDate": "2019-01-15T11:00:42.160+0000",
+        "affectedComponentCount": 14,
+        "criticalComponentCount": 8,
+        "severeComponentCount": 6,
+        "moderateComponentCount": 0,
+        "outcome": "none"
+    }
+}
+
+
+{ 
+    "timestamp": "2019-01-12T13:07:28.768+0000", 
+    "initiator": "admin", 
+    "id": "e4c25715d69d4018888ba7028ed901e3", 
+    "applicationEvaluation": {
+         "policyEvaluationId": "e4c25715d69d4018888ba7028ed901e3", 
+         "stage": "build", 
+         "ownerId": "feaf678c8e124ab79860d4fb1e277092", 
+         "evaluationDate": "2019-01-12T13:07:28.601+0000", 
+         "affectedComponentCount": 0, 
+         "criticalComponentCount": 0, 
+         "severeComponentCount": 0, 
+         "moderateComponentCount": 0, 
+         "outcome": "none" 
+    } 
+}
+
+# Get the application Id with the application public name
+# curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/applications?publicId=helloworld'
+
+# return report links for the application - output is array of latest report for each stage
+curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/reports/applications/feaf678c8e124ab79860d4fb1e277092' | python -m json.tool
+
+[
+    {
+        "applicationId": "feaf678c8e124ab79860d4fb1e277092",
+        "embeddableReportHtmlUrl": "ui/links/application/helloworld/report/e502329ed2dc4cf3b4a1c7c6f2b0c2bd/embeddable",
+        "evaluationDate": "2019-01-12T14:14:35.380Z",
+        "reportDataUrl": "api/v2/applications/helloworld/reports/e502329ed2dc4cf3b4a1c7c6f2b0c2bd",
+        "reportHtmlUrl": "ui/links/application/helloworld/report/e502329ed2dc4cf3b4a1c7c6f2b0c2bd",
+        "reportPdfUrl": "ui/links/application/helloworld/report/e502329ed2dc4cf3b4a1c7c6f2b0c2bd/pdf",
+        "stage": "build"
+    },
+    {
+        "applicationId": "feaf678c8e124ab79860d4fb1e277092",
+        "embeddableReportHtmlUrl": "ui/links/application/helloworld/report/e40a8bc3d5dd4ac7851deded2ce25f4e/embeddable",
+        "evaluationDate": "2019-01-12T14:20:25.068Z",
+        "reportDataUrl": "api/v2/applications/helloworld/reports/e40a8bc3d5dd4ac7851deded2ce25f4e",
+        "reportHtmlUrl": "ui/links/application/helloworld/report/e40a8bc3d5dd4ac7851deded2ce25f4e",
+        "reportPdfUrl": "ui/links/application/helloworld/report/e40a8bc3d5dd4ac7851deded2ce25f4e/pdf",
+        "stage": "stage-release"
+    }
+]
+
+In browser
+http://localhost:8070/ui/links/application/helloworld/report/f505e3c22f5a4d0abba363945ffdf721
+http://localhost:8070/assets/index.html#/reports/helloworld/f505e3c22f5a4d0abba363945ffdf721
+
+Send Email
+If applicationEvaluation.criticalComponentCount > 0
+    Send Email - app has critical violations
+    Link - http://localhost:8070/ui/links/application/helloworld/report/f505e3c22f5a4d0abba363945ffdf721
+    Email Address??
+
+
+#############
+
+{
+    "timestamp": "2019-01-22T14:07:30.821+0000",
+    "initiator": "admin",
+    "id": "37078704cd37497a8fce807a77d73054",
+    "applicationEvaluation": {
+        "policyEvaluationId": "37078704cd37497a8fce807a77d73054",
+        "stage": "operate",
+        "ownerId": "feaf678c8e124ab79860d4fb1e277092",
+        "evaluationDate": "2019-01-22T14:07:30.698+0000",
+        "affectedComponentCount": 0,
+        "criticalComponentCount": 0,
+        "severeComponentCount": 0,
+        "moderateComponentCount": 0,
+        "outcome": "none"
+    }
+}
+
+curl -u admin:admin123 -X GET 'http://localhost:8070/api/v2/reports/applications/feaf678c8e124ab79860d4fb1e277092' | python -m json.tool
+
+[
+    {
+        "applicationId": "feaf678c8e124ab79860d4fb1e277092",
+        "embeddableReportHtmlUrl": "ui/links/application/helloworld/report/e502329ed2dc4cf3b4a1c7c6f2b0c2bd/embeddable",
+        "evaluationDate": "2019-01-12T14:14:35.380Z",
+        "reportDataUrl": "api/v2/applications/helloworld/reports/e502329ed2dc4cf3b4a1c7c6f2b0c2bd",
+        "reportHtmlUrl": "ui/links/application/helloworld/report/e502329ed2dc4cf3b4a1c7c6f2b0c2bd",
+        "reportPdfUrl": "ui/links/application/helloworld/report/e502329ed2dc4cf3b4a1c7c6f2b0c2bd/pdf",
+        "stage": "build"
+    },
+    {
+        "applicationId": "feaf678c8e124ab79860d4fb1e277092",
+        "embeddableReportHtmlUrl": "ui/links/application/helloworld/report/ce96de80babb42df8ea25547c1f97c41/embeddable",
+        "evaluationDate": "2019-01-22T14:02:16.143Z",
+        "reportDataUrl": "api/v2/applications/helloworld/reports/ce96de80babb42df8ea25547c1f97c41",
+        "reportHtmlUrl": "ui/links/application/helloworld/report/ce96de80babb42df8ea25547c1f97c41",
+        "reportPdfUrl": "ui/links/application/helloworld/report/ce96de80babb42df8ea25547c1f97c41/pdf",
+        "stage": "stage-release"
+    },
+    {
+        "applicationId": "feaf678c8e124ab79860d4fb1e277092",
+        "embeddableReportHtmlUrl": "ui/links/application/helloworld/report/4ba2b5a7877f499b9e526d9d01cf1f57/embeddable",
+        "evaluationDate": "2019-01-22T14:07:30.698Z",
+        "reportDataUrl": "api/v2/applications/helloworld/reports/4ba2b5a7877f499b9e526d9d01cf1f57",
+        "reportHtmlUrl": "ui/links/application/helloworld/report/4ba2b5a7877f499b9e526d9d01cf1f57",
+        "reportPdfUrl": "ui/links/application/helloworld/report/4ba2b5a7877f499b9e526d9d01cf1f57/pdf",
+        "stage": "operate"
+    }
+]
+
+http://localhost:8070/ui/links/application/helloworld/report/4ba2b5a7877f499b9e526d9d01cf1f57
+

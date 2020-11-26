@@ -1,0 +1,1303 @@
+{
+  "applicationId" : "app2",
+  "scanId" : "b7da684383e34af9861faddc1e6fe31e",
+  "reportHtmlUrl" : "http://localhost:8070/ui/links/application/app2/report/b7da684383e34af9861faddc1e6fe31e",
+  "reportPdfUrl" : "http://localhost:8070/ui/links/application/app2/report/b7da684383e34af9861faddc1e6fe31e/pdf",
+  "reportDataUrl" : "http://localhost:8070/api/v2/applications/app2/reports/b7da684383e34af9861faddc1e6fe31e/raw",
+  "policyAction" : "Warning",
+  "policyEvaluationResult" : {
+    "alerts" : [ {
+      "trigger" : {
+        "policyId" : "41ce30891386431aa8389d36b4494352",
+        "policyName" : "Architecture-Quality",
+        "threatLevel" : 1,
+        "policyViolationId" : "f39e96ebbd4e452fae479e006833dc10",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "bzip2",
+              "owner" : "conan",
+              "version" : "1.0.6"
+            }
+          },
+          "hash" : "0ee6843b0c6b18afb028",
+          "constraintFacts" : [ {
+            "constraintId" : "41e38c33838d4c7c9ee336640a42a1d8",
+            "constraintName" : "Version is old",
+            "operatorName" : "OR",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "AgeInDays",
+              "conditionIndex" : 0,
+              "summary" : "Age older than 1825 days",
+              "reason" : "Found component older than 5 years",
+              "reference" : null,
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "bzip2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "conan"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.0.6"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "41ce30891386431aa8389d36b4494352",
+        "policyName" : "Architecture-Quality",
+        "threatLevel" : 1,
+        "policyViolationId" : "7e8d5978736c4e48bd1e0f7e7596308f",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "zlib",
+              "owner" : "conan",
+              "version" : "1.2.0"
+            }
+          },
+          "hash" : "6148d03ec9c192ac66ed",
+          "constraintFacts" : [ {
+            "constraintId" : "41e38c33838d4c7c9ee336640a42a1d8",
+            "constraintName" : "Version is old",
+            "operatorName" : "OR",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "AgeInDays",
+              "conditionIndex" : 0,
+              "summary" : "Age older than 1825 days",
+              "reason" : "Found component older than 5 years",
+              "reference" : null,
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "zlib"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "conan"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.2.0"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "41ce30891386431aa8389d36b4494352",
+        "policyName" : "Architecture-Quality",
+        "threatLevel" : 1,
+        "policyViolationId" : "b625fc9c99234359a92e2b00490691da",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "apache-apr",
+              "owner" : "jgsogo",
+              "version" : "0.9.1"
+            }
+          },
+          "hash" : "68efba92b636e925b8eb",
+          "constraintFacts" : [ {
+            "constraintId" : "41e38c33838d4c7c9ee336640a42a1d8",
+            "constraintName" : "Version is old",
+            "operatorName" : "OR",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "AgeInDays",
+              "conditionIndex" : 0,
+              "summary" : "Age older than 1825 days",
+              "reason" : "Found component older than 5 years",
+              "reference" : null,
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "apache-apr"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "jgsogo"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "0.9.1"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "41ce30891386431aa8389d36b4494352",
+        "policyName" : "Architecture-Quality",
+        "threatLevel" : 1,
+        "policyViolationId" : "6c753f32bbf049338e1cd1997339d169",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "libxml2",
+              "owner" : "bincrafters",
+              "version" : "2.9.8"
+            }
+          },
+          "hash" : "b763e692fac53d499815",
+          "constraintFacts" : [ {
+            "constraintId" : "41e38c33838d4c7c9ee336640a42a1d8",
+            "constraintName" : "Version is old",
+            "operatorName" : "OR",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "AgeInDays",
+              "conditionIndex" : 0,
+              "summary" : "Age older than 1825 days",
+              "reason" : "Found component older than 5 years",
+              "reference" : null,
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "libxml2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "bincrafters"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "2.9.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "628bc09c671046e1b767c671c4d66e29",
+        "policyName" : "Security-High",
+        "threatLevel" : 9,
+        "policyViolationId" : "c08d36d3d5124c218b1ae5c57773ef72",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "zlib",
+              "owner" : "conan",
+              "version" : "1.2.0"
+            }
+          },
+          "hash" : "6148d03ec9c192ac66ed",
+          "constraintFacts" : [ {
+            "constraintId" : "d9562c2ca06f4029b630b07a13767f04",
+            "constraintName" : "High risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 7",
+              "reason" : "Found security vulnerability CVE-2005-2096 with severity >= 7 (severity = 7.5)",
+              "reference" : {
+                "value" : "CVE-2005-2096",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 9",
+              "reason" : "Found security vulnerability CVE-2005-2096 with severity < 9 (severity = 7.5)",
+              "reference" : {
+                "value" : "CVE-2005-2096",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "zlib"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "conan"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.2.0"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      }, {
+        "actionTypeId" : "notify",
+        "target" : "55a1eff42a99421782a0d5f10d01b31a",
+        "targetType" : "webhook"
+      } ]
+    }, {
+      "trigger" : {
+        "policyId" : "628bc09c671046e1b767c671c4d66e29",
+        "policyName" : "Security-High",
+        "threatLevel" : 9,
+        "policyViolationId" : "e728556f616f40728908d39aaf8b0241",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "apache-apr",
+              "owner" : "jgsogo",
+              "version" : "0.9.1"
+            }
+          },
+          "hash" : "68efba92b636e925b8eb",
+          "constraintFacts" : [ {
+            "constraintId" : "d9562c2ca06f4029b630b07a13767f04",
+            "constraintName" : "High risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 7",
+              "reason" : "Found security vulnerability CVE-2017-12613 with severity >= 7 (severity = 7.1)",
+              "reference" : {
+                "value" : "CVE-2017-12613",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 9",
+              "reason" : "Found security vulnerability CVE-2017-12613 with severity < 9 (severity = 7.1)",
+              "reference" : {
+                "value" : "CVE-2017-12613",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "apache-apr"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "jgsogo"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "0.9.1"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      }, {
+        "actionTypeId" : "notify",
+        "target" : "55a1eff42a99421782a0d5f10d01b31a",
+        "targetType" : "webhook"
+      } ]
+    }, {
+      "trigger" : {
+        "policyId" : "628bc09c671046e1b767c671c4d66e29",
+        "policyName" : "Security-High",
+        "threatLevel" : 9,
+        "policyViolationId" : "8b96e44b036d4ca5acaafdfd763df252",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "libxml2",
+              "owner" : "bincrafters",
+              "version" : "2.9.8"
+            }
+          },
+          "hash" : "b763e692fac53d499815",
+          "constraintFacts" : [ {
+            "constraintId" : "d9562c2ca06f4029b630b07a13767f04",
+            "constraintName" : "High risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 7",
+              "reason" : "Found security vulnerability CVE-2018-14404 with severity >= 7 (severity = 7.5)",
+              "reference" : {
+                "value" : "CVE-2018-14404",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 9",
+              "reason" : "Found security vulnerability CVE-2018-14404 with severity < 9 (severity = 7.5)",
+              "reference" : {
+                "value" : "CVE-2018-14404",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "libxml2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "bincrafters"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "2.9.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      }, {
+        "actionTypeId" : "notify",
+        "target" : "55a1eff42a99421782a0d5f10d01b31a",
+        "targetType" : "webhook"
+      } ]
+    }, {
+      "trigger" : {
+        "policyId" : "628bc09c671046e1b767c671c4d66e29",
+        "policyName" : "Security-High",
+        "threatLevel" : 9,
+        "policyViolationId" : "8d48091f5a3a4e8ca7ba5156164290ea",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "libxml2",
+              "owner" : "bincrafters",
+              "version" : "2.9.8"
+            }
+          },
+          "hash" : "b763e692fac53d499815",
+          "constraintFacts" : [ {
+            "constraintId" : "d9562c2ca06f4029b630b07a13767f04",
+            "constraintName" : "High risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 7",
+              "reason" : "Found security vulnerability CVE-2019-19956 with severity >= 7 (severity = 7.5)",
+              "reference" : {
+                "value" : "CVE-2019-19956",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 9",
+              "reason" : "Found security vulnerability CVE-2019-19956 with severity < 9 (severity = 7.5)",
+              "reference" : {
+                "value" : "CVE-2019-19956",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "libxml2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "bincrafters"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "2.9.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      }, {
+        "actionTypeId" : "notify",
+        "target" : "55a1eff42a99421782a0d5f10d01b31a",
+        "targetType" : "webhook"
+      } ]
+    }, {
+      "trigger" : {
+        "policyId" : "a4923926f9fc4ff3b28e5144000d6127",
+        "policyName" : "Security-Medium",
+        "threatLevel" : 7,
+        "policyViolationId" : "ce52772a7f17444697342bdede12186b",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "bzip2",
+              "owner" : "conan",
+              "version" : "1.0.6"
+            }
+          },
+          "hash" : "0ee6843b0c6b18afb028",
+          "constraintFacts" : [ {
+            "constraintId" : "7ff22c78c1f949c59a159435afe51ad6",
+            "constraintName" : "Medium risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 4",
+              "reason" : "Found security vulnerability CVE-2016-3189 with severity >= 4 (severity = 6.5)",
+              "reference" : {
+                "value" : "CVE-2016-3189",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 7",
+              "reason" : "Found security vulnerability CVE-2016-3189 with severity < 7 (severity = 6.5)",
+              "reference" : {
+                "value" : "CVE-2016-3189",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "bzip2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "conan"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.0.6"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "a4923926f9fc4ff3b28e5144000d6127",
+        "policyName" : "Security-Medium",
+        "threatLevel" : 7,
+        "policyViolationId" : "f25f1fec1a4743fc9b28f40ab37ab425",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "apache-apr",
+              "owner" : "jgsogo",
+              "version" : "0.9.1"
+            }
+          },
+          "hash" : "68efba92b636e925b8eb",
+          "constraintFacts" : [ {
+            "constraintId" : "7ff22c78c1f949c59a159435afe51ad6",
+            "constraintName" : "Medium risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 4",
+              "reason" : "Found security vulnerability CVE-2009-2699 with severity >= 4 (severity = 5.0)",
+              "reference" : {
+                "value" : "CVE-2009-2699",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 7",
+              "reason" : "Found security vulnerability CVE-2009-2699 with severity < 7 (severity = 5.0)",
+              "reference" : {
+                "value" : "CVE-2009-2699",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "apache-apr"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "jgsogo"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "0.9.1"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "a4923926f9fc4ff3b28e5144000d6127",
+        "policyName" : "Security-Medium",
+        "threatLevel" : 7,
+        "policyViolationId" : "b777942881634302a30b1789594e1f13",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "apache-apr",
+              "owner" : "jgsogo",
+              "version" : "0.9.1"
+            }
+          },
+          "hash" : "68efba92b636e925b8eb",
+          "constraintFacts" : [ {
+            "constraintId" : "7ff22c78c1f949c59a159435afe51ad6",
+            "constraintName" : "Medium risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 4",
+              "reason" : "Found security vulnerability CVE-2011-0419 with severity >= 4 (severity = 4.3)",
+              "reference" : {
+                "value" : "CVE-2011-0419",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 7",
+              "reason" : "Found security vulnerability CVE-2011-0419 with severity < 7 (severity = 4.3)",
+              "reference" : {
+                "value" : "CVE-2011-0419",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "apache-apr"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "jgsogo"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "0.9.1"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "a4923926f9fc4ff3b28e5144000d6127",
+        "policyName" : "Security-Medium",
+        "threatLevel" : 7,
+        "policyViolationId" : "0b0710645f134fa7aaabb742c496745c",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "apache-apr",
+              "owner" : "jgsogo",
+              "version" : "0.9.1"
+            }
+          },
+          "hash" : "68efba92b636e925b8eb",
+          "constraintFacts" : [ {
+            "constraintId" : "7ff22c78c1f949c59a159435afe51ad6",
+            "constraintName" : "Medium risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 4",
+              "reason" : "Found security vulnerability CVE-2012-0840 with severity >= 4 (severity = 5.0)",
+              "reference" : {
+                "value" : "CVE-2012-0840",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 7",
+              "reason" : "Found security vulnerability CVE-2012-0840 with severity < 7 (severity = 5.0)",
+              "reference" : {
+                "value" : "CVE-2012-0840",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "apache-apr"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "jgsogo"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "0.9.1"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "a4923926f9fc4ff3b28e5144000d6127",
+        "policyName" : "Security-Medium",
+        "threatLevel" : 7,
+        "policyViolationId" : "4133ec2b7b044d10a04dba89e3857a6e",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "libxml2",
+              "owner" : "bincrafters",
+              "version" : "2.9.8"
+            }
+          },
+          "hash" : "b763e692fac53d499815",
+          "constraintFacts" : [ {
+            "constraintId" : "7ff22c78c1f949c59a159435afe51ad6",
+            "constraintName" : "Medium risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 4",
+              "reason" : "Found security vulnerability CVE-2018-14567 with severity >= 4 (severity = 6.5)",
+              "reference" : {
+                "value" : "CVE-2018-14567",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 7",
+              "reason" : "Found security vulnerability CVE-2018-14567 with severity < 7 (severity = 6.5)",
+              "reference" : {
+                "value" : "CVE-2018-14567",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "libxml2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "bincrafters"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "2.9.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "a4923926f9fc4ff3b28e5144000d6127",
+        "policyName" : "Security-Medium",
+        "threatLevel" : 7,
+        "policyViolationId" : "8aacf876d59747479d9d694e1a6baaf3",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "libxml2",
+              "owner" : "bincrafters",
+              "version" : "2.9.8"
+            }
+          },
+          "hash" : "b763e692fac53d499815",
+          "constraintFacts" : [ {
+            "constraintId" : "7ff22c78c1f949c59a159435afe51ad6",
+            "constraintName" : "Medium risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 4",
+              "reason" : "Found security vulnerability CVE-2018-9251 with severity >= 4 (severity = 5.3)",
+              "reference" : {
+                "value" : "CVE-2018-9251",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 7",
+              "reason" : "Found security vulnerability CVE-2018-9251 with severity < 7 (severity = 5.3)",
+              "reference" : {
+                "value" : "CVE-2018-9251",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "libxml2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "bincrafters"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "2.9.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "c0e646969b9e49f1a7c36d207436602b",
+        "policyName" : "MyConan",
+        "threatLevel" : 5,
+        "policyViolationId" : "17a677ca42fd418d906942b3bd003864",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "bzip2",
+              "owner" : "conan",
+              "version" : "1.0.6"
+            }
+          },
+          "hash" : "0ee6843b0c6b18afb028",
+          "constraintFacts" : [ {
+            "constraintId" : "5690d74f0c014864ba328aa14d541a35",
+            "constraintName" : "Conan",
+            "operatorName" : "OR",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "Package URL",
+              "conditionIndex" : 0,
+              "summary" : "Package URL matches pkg:conan/*@*",
+              "reason" : "Coordinates were stable : bzip2 : conan : 1.0.6 (matches package URL pkg:conan/*@*)",
+              "reference" : null,
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "bzip2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "conan"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.0.6"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "c0e646969b9e49f1a7c36d207436602b",
+        "policyName" : "MyConan",
+        "threatLevel" : 5,
+        "policyViolationId" : "cfefb753d2194b7796aa256c2fc84666",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "zlib",
+              "owner" : "conan",
+              "version" : "1.2.0"
+            }
+          },
+          "hash" : "6148d03ec9c192ac66ed",
+          "constraintFacts" : [ {
+            "constraintId" : "5690d74f0c014864ba328aa14d541a35",
+            "constraintName" : "Conan",
+            "operatorName" : "OR",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "Package URL",
+              "conditionIndex" : 0,
+              "summary" : "Package URL matches pkg:conan/*@*",
+              "reason" : "Coordinates were stable : zlib : conan : 1.2.0 (matches package URL pkg:conan/*@*)",
+              "reference" : null,
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "zlib"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "conan"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.2.0"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "c0e646969b9e49f1a7c36d207436602b",
+        "policyName" : "MyConan",
+        "threatLevel" : 5,
+        "policyViolationId" : "5c59da5b64b14fa0aa9379245d25aa66",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "apache-apr",
+              "owner" : "jgsogo",
+              "version" : "0.9.1"
+            }
+          },
+          "hash" : "68efba92b636e925b8eb",
+          "constraintFacts" : [ {
+            "constraintId" : "5690d74f0c014864ba328aa14d541a35",
+            "constraintName" : "Conan",
+            "operatorName" : "OR",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "Package URL",
+              "conditionIndex" : 0,
+              "summary" : "Package URL matches pkg:conan/*@*",
+              "reason" : "Coordinates were stable : apache-apr : jgsogo : 0.9.1 (matches package URL pkg:conan/*@*)",
+              "reference" : null,
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "apache-apr"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "jgsogo"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "0.9.1"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "c0e646969b9e49f1a7c36d207436602b",
+        "policyName" : "MyConan",
+        "threatLevel" : 5,
+        "policyViolationId" : "a82508feb3a649cd9e786c322fadb4b1",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "libxml2",
+              "owner" : "bincrafters",
+              "version" : "2.9.8"
+            }
+          },
+          "hash" : "b763e692fac53d499815",
+          "constraintFacts" : [ {
+            "constraintId" : "5690d74f0c014864ba328aa14d541a35",
+            "constraintName" : "Conan",
+            "operatorName" : "OR",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "Package URL",
+              "conditionIndex" : 0,
+              "summary" : "Package URL matches pkg:conan/*@*",
+              "reason" : "Coordinates were stable : libxml2 : bincrafters : 2.9.8 (matches package URL pkg:conan/*@*)",
+              "reference" : null,
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "libxml2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "bincrafters"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "2.9.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ ]
+    }, {
+      "trigger" : {
+        "policyId" : "d6be3ea27841438aaa28dc215f1c8208",
+        "policyName" : "Security-Critical",
+        "threatLevel" : 10,
+        "policyViolationId" : "d59ce544061a4bd58b7c049f0522fdb0",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "bzip2",
+              "owner" : "conan",
+              "version" : "1.0.6"
+            }
+          },
+          "hash" : "0ee6843b0c6b18afb028",
+          "constraintFacts" : [ {
+            "constraintId" : "79149bfc3c3f43cd8e0544873c317347",
+            "constraintName" : "Critical risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 9",
+              "reason" : "Found security vulnerability CVE-2019-12900 with severity >= 9 (severity = 9.8)",
+              "reference" : {
+                "value" : "CVE-2019-12900",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "bzip2"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "conan"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.0.6"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      }, {
+        "actionTypeId" : "notify",
+        "target" : "sola.otudeko@mac.com"
+      }, {
+        "actionTypeId" : "notify",
+        "target" : "55a1eff42a99421782a0d5f10d01b31a",
+        "targetType" : "webhook"
+      } ]
+    }, {
+      "trigger" : {
+        "policyId" : "d6be3ea27841438aaa28dc215f1c8208",
+        "policyName" : "Security-Critical",
+        "threatLevel" : 10,
+        "policyViolationId" : "e8eecb3e507c439884d5979a4ed1a055",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "channel" : "stable",
+              "name" : "apache-apr",
+              "owner" : "jgsogo",
+              "version" : "0.9.1"
+            }
+          },
+          "hash" : "68efba92b636e925b8eb",
+          "constraintFacts" : [ {
+            "constraintId" : "79149bfc3c3f43cd8e0544873c317347",
+            "constraintName" : "Critical risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 9",
+              "reason" : "Found security vulnerability CVE-2009-2412 with severity >= 9 (severity = 10.0)",
+              "reference" : {
+                "value" : "CVE-2009-2412",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "channel",
+              "value" : "stable"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "name",
+              "value" : "apache-apr"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "owner",
+              "value" : "jgsogo"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "0.9.1"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      }, {
+        "actionTypeId" : "notify",
+        "target" : "sola.otudeko@mac.com"
+      }, {
+        "actionTypeId" : "notify",
+        "target" : "55a1eff42a99421782a0d5f10d01b31a",
+        "targetType" : "webhook"
+      } ]
+    } ],
+    "affectedComponentCount" : 4,
+    "criticalComponentCount" : 4,
+    "severeComponentCount" : 0,
+    "moderateComponentCount" : 0,
+    "criticalPolicyViolationCount" : 6,
+    "severePolicyViolationCount" : 10,
+    "moderatePolicyViolationCount" : 0,
+    "grandfatheredPolicyViolationCount" : 0
+  }
+}

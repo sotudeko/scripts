@@ -1,0 +1,36 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=apple-clang
+    compiler.libcxx=libc++
+    compiler.version=10.0
+    os=Macos
+
+[requires]
+    bzip2/1.Y.Z
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    arch_build=x86_64
+    build_type=Release
+    compiler=apple-clang
+    compiler.libcxx=libc++
+    compiler.version=10.0
+    os=Macos
+    os_build=Macos
+
+[full_requires]
+    bzip2/1.0.6@conan/stable:534dcc368c999e07e81f146b3466b8f656ef1f55
+
+[full_options]
+    bzip2:fPIC=True
+    bzip2:shared=False
+
+[recipe_hash]
+
+
+[env]
+

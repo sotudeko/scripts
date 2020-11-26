@@ -1,0 +1,13 @@
+- name: test my module
+  connection: local
+  hosts: localhost
+  tasks:
+    - name: run the new module
+      test_module:
+        name: 'Hello World!'
+        new: true
+      register: op
+    - name: dump test output
+      debug:
+        msg: "{{ op }}"
+

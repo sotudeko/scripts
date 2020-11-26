@@ -1,0 +1,235 @@
+{
+  "applicationId" : "md2",
+  "scanId" : "744645c0f5bc45d8ab6ae150239d4ecf",
+  "reportHtmlUrl" : "http://localhost:8070/ui/links/application/md2/report/744645c0f5bc45d8ab6ae150239d4ecf",
+  "reportPdfUrl" : "http://localhost:8070/ui/links/application/md2/report/744645c0f5bc45d8ab6ae150239d4ecf/pdf",
+  "reportDataUrl" : "http://localhost:8070/api/v2/applications/md2/reports/744645c0f5bc45d8ab6ae150239d4ecf/raw",
+  "policyAction" : "Warning",
+  "policyEvaluationResult" : {
+    "alerts" : [ {
+      "trigger" : {
+        "policyId" : "a9b454f38de44603bcf0abba76d23b2a",
+        "policyName" : "Security-Critical",
+        "threatLevel" : 10,
+        "policyViolationId" : "95be84ac2afa4ebb964220f7ab057bfb",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "name" : "zlib",
+              "version" : "1.2.8"
+            }
+          },
+          "hash" : "d53b9e0ac3d05b85d4a0",
+          "constraintFacts" : [ {
+            "constraintId" : "65a43e7a7e0548d8b2fa94153c192a53",
+            "constraintName" : "Critical risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 9",
+              "reason" : "Found security vulnerability CVE-2016-9841 with severity >= 9 (severity = 9.8)",
+              "reference" : {
+                "value" : "CVE-2016-9841",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "name",
+              "value" : "zlib"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.2.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      } ]
+    }, {
+      "trigger" : {
+        "policyId" : "a9b454f38de44603bcf0abba76d23b2a",
+        "policyName" : "Security-Critical",
+        "threatLevel" : 10,
+        "policyViolationId" : "0d6e40eb73b548fd9485b0d4682a5ee5",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "name" : "zlib",
+              "version" : "1.2.8"
+            }
+          },
+          "hash" : "d53b9e0ac3d05b85d4a0",
+          "constraintFacts" : [ {
+            "constraintId" : "65a43e7a7e0548d8b2fa94153c192a53",
+            "constraintName" : "Critical risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 9",
+              "reason" : "Found security vulnerability CVE-2016-9843 with severity >= 9 (severity = 9.8)",
+              "reference" : {
+                "value" : "CVE-2016-9843",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "name",
+              "value" : "zlib"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.2.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      } ]
+    }, {
+      "trigger" : {
+        "policyId" : "eb11c7f7ff39421a8b3b9f5900451add",
+        "policyName" : "Security-High",
+        "threatLevel" : 9,
+        "policyViolationId" : "15a5689509e642499dbfd42b8e3bdae6",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "name" : "zlib",
+              "version" : "1.2.8"
+            }
+          },
+          "hash" : "d53b9e0ac3d05b85d4a0",
+          "constraintFacts" : [ {
+            "constraintId" : "a8e4bd9dbd994814af054d3a957472df",
+            "constraintName" : "High risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 7",
+              "reason" : "Found security vulnerability CVE-2016-9840 with severity >= 7 (severity = 8.8)",
+              "reference" : {
+                "value" : "CVE-2016-9840",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 9",
+              "reason" : "Found security vulnerability CVE-2016-9840 with severity < 9 (severity = 8.8)",
+              "reference" : {
+                "value" : "CVE-2016-9840",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "name",
+              "value" : "zlib"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.2.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      } ]
+    }, {
+      "trigger" : {
+        "policyId" : "eb11c7f7ff39421a8b3b9f5900451add",
+        "policyName" : "Security-High",
+        "threatLevel" : 9,
+        "policyViolationId" : "2941173c777147869c5c85460e11ea36",
+        "componentFacts" : [ {
+          "componentIdentifier" : {
+            "format" : "conan",
+            "coordinates" : {
+              "name" : "zlib",
+              "version" : "1.2.8"
+            }
+          },
+          "hash" : "d53b9e0ac3d05b85d4a0",
+          "constraintFacts" : [ {
+            "constraintId" : "a8e4bd9dbd994814af054d3a957472df",
+            "constraintName" : "High risk CVSS score",
+            "operatorName" : "AND",
+            "conditionFacts" : [ {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity >= 7",
+              "reason" : "Found security vulnerability CVE-2016-9842 with severity >= 7 (severity = 8.8)",
+              "reference" : {
+                "value" : "CVE-2016-9842",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            }, {
+              "conditionTypeId" : "SecurityVulnerabilitySeverity",
+              "conditionIndex" : 0,
+              "summary" : "Security Vulnerability Severity < 9",
+              "reason" : "Found security vulnerability CVE-2016-9842 with severity < 9 (severity = 8.8)",
+              "reference" : {
+                "value" : "CVE-2016-9842",
+                "type" : "SECURITY_VULNERABILITY_REFID"
+              },
+              "triggerJson" : null
+            } ]
+          } ],
+          "pathnames" : [ ],
+          "displayName" : {
+            "parts" : [ {
+              "field" : "name",
+              "value" : "zlib"
+            }, {
+              "value" : " : "
+            }, {
+              "field" : "version",
+              "value" : "1.2.8"
+            } ]
+          }
+        } ]
+      },
+      "actions" : [ {
+        "actionTypeId" : "warn",
+        "target" : null
+      } ]
+    } ],
+    "affectedComponentCount" : 1,
+    "criticalComponentCount" : 1,
+    "severeComponentCount" : 0,
+    "moderateComponentCount" : 0,
+    "criticalPolicyViolationCount" : 4,
+    "severePolicyViolationCount" : 0,
+    "moderatePolicyViolationCount" : 0,
+    "grandfatheredPolicyViolationCount" : 0
+  }
+}

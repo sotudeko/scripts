@@ -1,0 +1,5 @@
+#!/bin/bash
+
+image=$1
+docker-compose exec anchore-engine anchore-cli --u admin --p foobar image add ${image}
+

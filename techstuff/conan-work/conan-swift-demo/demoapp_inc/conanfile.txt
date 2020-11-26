@@ -1,0 +1,7 @@
+[requires]
+boost/1.69.0@conan/stable
+MyLib/0.1@so/MyLib
+
+[generators]
+cmake
+

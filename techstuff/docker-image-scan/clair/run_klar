@@ -1,0 +1,9 @@
+#!/bin/bash
+
+image=$1
+#CLAIR_ADDR=http://localhost:6060 CLAIR_OUTPUT=High CLAIR_THRESHOLD=10 DOCKER_USER=docker DOCKER_PASSWORD=secret REGISTRY_INSECURE=true ./klar-2.4.0-osx-amd64 $image
+
+CLAIR_ADDR=http://localhost:6060 ./klar ${image}
+
+
+

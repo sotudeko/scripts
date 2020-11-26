@@ -1,0 +1,7 @@
+[requires]
+bzip2/1.0.6@conan/stable
+Poco/1.8.1@conan/stable
+
+[imports]
+src, * -> ./deps/src
+

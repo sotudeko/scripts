@@ -1,0 +1,8 @@
+[requires]
+apache-apr/0.9.1@jgsogo/stable
+zlib/1.2.0@conan/stable
+libxml2/2.9.8@bincrafters/stable
+bzip2/1.0.6@conan/stable
+poco/1.9.4@conan/stable
+boost/1.69.0@conan/stable
+

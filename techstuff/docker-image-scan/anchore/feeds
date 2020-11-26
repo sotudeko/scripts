@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker-compose exec anchore-engine anchore-cli --u admin --p foobar system feeds list
+
