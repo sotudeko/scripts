@@ -1,5 +1,0 @@
-{
-  "name": "maven4",
-  "type": "groovy",
-  "content": "repository.createMavenHosted('mvn-internal4', 'demo-blob', true, 'Snapshot', '', 'Strict')"
-}
