@@ -24,7 +24,7 @@ RUN_AS_USER=sotudeko
 do_start()
 {
     cd $NEXUS_IQ_SERVER_HOME
-    #su -m $RUN_AS_USER -c "java $JAVA_OPTIONS -jar nexus-iq-server-$VERSION.jar server  config.yml > /dev/null 2>&1 &"
+    #su -m $RUN_AS_USER -c "java $JAVA_OPTIONS -jar nexus-iq-server server  config.yml > /dev/null 2>&1 &"
     java $JAVA_OPTIONS -jar nexus-iq-server server config.yml > /dev/null 2>&1 &
     echo "Starting nexus-iq-server on http://localhost:8070"
 }
@@ -32,7 +32,7 @@ do_start()
 do_console()
 {
     cd $NEXUS_IQ_SERVER_HOME
-    #java $JAVA_OPTIONS -jar nexus-iq-server-$VERSION.jar server config.yml
+    #java $JAVA_OPTIONS -jar nexus-iq-server server config.yml
     java $JAVA_OPTIONS -jar nexus-iq-server server config.yml
 }
 
